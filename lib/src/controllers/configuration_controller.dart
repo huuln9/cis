@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vncitizens/services/configuration_service.dart';
+import 'package:vncitizens_home/src/services/configuration_service.dart';
 
 class ConfigurationController {
   final _configurationService = Get.put(ConfigurationService());

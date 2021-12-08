@@ -3,11 +3,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 final List<String> listImage = [
-  'assets/images/header.jpg',
-  'assets/images/header.jpg',
-  'assets/images/header.jpg',
-  'assets/images/header.jpg',
-  'assets/images/header.jpg',
+  'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/header.jpg',
 ];
 
 final List<Widget> listImageSlider = listImage

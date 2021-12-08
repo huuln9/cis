@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vncitizens/controllers/configuration_controller.dart';
+import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
 // import 'package:vncitizens/src/controllers/authentication_controller.dart';
 
 class Splash extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SplashState extends State<Splash> {
     // final authenticationController = Get.put(AuthenticationController());
     // authenticationController.signInWithCredential();
 
-    Get.toNamed('/');
+    Get.toNamed('/home');
   }
 
   @override
