@@ -16,7 +16,7 @@ packages:
     source: hosted
     version: "2.1.0"
   carousel_slider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: carousel_slider
       url: "https://pub.dartlang.org"
@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  cupertino_icons:
+    dependency: "direct main"
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   fake_async:
     dependency: transitive
     description:
@@ -63,7 +70,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_custom_clippers:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_custom_clippers
       url: "https://pub.dartlang.org"
@@ -177,6 +184,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  vncitizens_home:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
 sdks:
   dart: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"

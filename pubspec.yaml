@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: ^4.5.1
+  flutter_custom_clippers: ^2.0.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
