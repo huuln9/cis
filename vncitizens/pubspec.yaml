@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.5.1
+  intl: ^0.17.0
 
   vncitizens_home:
     path: ../

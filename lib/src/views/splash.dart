@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
-// import 'package:vncitizens/src/controllers/authentication_controller.dart';
+import 'package:vncitizens_authentication/vncitizens_authentication.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -24,8 +24,14 @@ class _SplashState extends State<Splash> {
       await Future.delayed(const Duration(milliseconds: 100));
     }
 
-    // final authenticationController = Get.put(AuthenticationController());
-    // authenticationController.signInWithCredential();
+    final config = configurationController.getConfiguration();
+    final authenticationController = Get.put(AuthenticationController(
+      ssoURL: config['ssoURL'],
+      clientId: config['clientId'],
+      username: config['username'],
+      password: config['password'],
+    ));
+    authenticationController.signInWithCredential();
 
     Get.toNamed('/home');
   }

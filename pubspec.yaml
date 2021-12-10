@@ -1,6 +1,7 @@
 name: vncitizens_home
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 homepage:
 
 environment:
@@ -13,6 +14,9 @@ dependencies:
   get: ^4.5.1
   flutter_custom_clippers: ^2.0.0
   carousel_slider: ^4.0.0
+
+  vncitizens_authentication:
+    path: ./lib/packages/vncitizens_authentication
 
 dev_dependencies:
   flutter_test:
