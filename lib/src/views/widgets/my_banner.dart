@@ -3,11 +3,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 final List<String> listImage = [
+  'packages/vncitizens_home/assets/banner.png',
   'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/banner.png',
   'packages/vncitizens_home/assets/header.jpg',
-  'packages/vncitizens_home/assets/header.jpg',
-  'packages/vncitizens_home/assets/header.jpg',
-  'packages/vncitizens_home/assets/header.jpg',
+  'packages/vncitizens_home/assets/banner.png',
 ];
 
 final List<Widget> listImageSlider = listImage
@@ -32,19 +32,19 @@ final List<Widget> listImageSlider = listImage
     )
     .toList();
 
-class CustomBanner extends StatefulWidget implements PreferredSizeWidget {
+class MyBanner extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize; // default is 56.0
 
-  const CustomBanner({Key? key})
+  const MyBanner({Key? key})
       : preferredSize = const Size.fromHeight(kToolbarHeight),
         super(key: key);
 
   @override
-  _CustomBannerState createState() => _CustomBannerState();
+  _MyBannerState createState() => _MyBannerState();
 }
 
-class _CustomBannerState extends State<CustomBanner> {
+class _MyBannerState extends State<MyBanner> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 

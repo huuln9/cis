@@ -31,9 +31,14 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   assets:
+    - packages/vncitizens_home/assets/banner.png
     - packages/vncitizens_home/assets/header.jpg
     - packages/vncitizens_home/assets/img.jpg
     - packages/vncitizens_home/assets/hospital.png
+    - packages/vncitizens_home/assets/notification-icon.png
+    - packages/vncitizens_home/assets/tgg-icon.png
+    - packages/vncitizens_home/assets/setting-icon.png
+    - packages/vncitizens_home/assets/menu-icon.png
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
