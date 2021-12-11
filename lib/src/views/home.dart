@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vncitizens_home/src/views/widgets/menu_grid.dart';
 import 'package:vncitizens_home/src/views/widgets/place.dart';
 import 'package:vncitizens_home/vncitizens_home.dart';
@@ -11,31 +12,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _currentPage = 0;
+  int _currentScreenIndex = 0;
   final List<Screen> _listScreen = [
     Screen(
       body: const MenuGrid(),
       icon: const Icon(Icons.home),
       label: 'Home',
-      navigatorKey: GlobalKey<NavigatorState>(),
+      navigatorKey: Get.nestedKey(0),
     ),
     Screen(
       body: const MyNotification(),
       icon: const Icon(Icons.notifications),
       label: 'Notifications',
-      navigatorKey: GlobalKey<NavigatorState>(),
+      navigatorKey: Get.nestedKey(1),
     ),
     Screen(
       body: const Tgg(),
       icon: const Icon(Icons.center_focus_strong),
       label: 'Tiền Giang',
-      navigatorKey: GlobalKey<NavigatorState>(),
+      navigatorKey: Get.nestedKey(2),
     ),
     Screen(
       body: const MenuList(),
       icon: const Icon(Icons.settings),
       label: 'Setting',
-      navigatorKey: GlobalKey<NavigatorState>(),
+      navigatorKey: Get.nestedKey(3),
     ),
     // Screen(
     //   body: const MenuPage(),
@@ -50,10 +51,10 @@ class _HomeState extends State<Home> {
       key: naviKey,
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == '/place') {
-          final args = settings.arguments as List;
-          return MaterialPageRoute(builder: (_) => Place());
+          // final args = settings.arguments as List;
+          return GetPageRoute(page: () => Place());
         }
-        return MaterialPageRoute(builder: (context) => widget!);
+        return GetPageRoute(page: () => widget!);
       },
     );
   }
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> {
     return BottomNavigationBar(
       selectedItemColor: Colors.blueAccent,
       type: BottomNavigationBarType.fixed,
-      currentIndex: _currentPage,
+      currentIndex: _currentScreenIndex,
       onTap: (int index) {
         _selectTab(index);
       },
@@ -73,14 +74,14 @@ class _HomeState extends State<Home> {
   }
 
   void _selectTab(int index) {
-    if (index == _currentPage) {
+    if (index == _currentScreenIndex) {
       _listScreen[index]
-          .navigatorKey
+          .navigatorKey!
           .currentState!
           .popUntil((route) => route.isFirst);
     } else {
       setState(() {
-        _currentPage = index;
+        _currentScreenIndex = index;
       });
     }
   }
@@ -89,12 +90,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        final isFirstRouteInCurrentTab = !await _listScreen[_currentPage]
-            .navigatorKey
+        final isFirstRouteInCurrentTab = !await _listScreen[_currentScreenIndex]
+            .navigatorKey!
             .currentState!
             .maybePop();
         if (isFirstRouteInCurrentTab) {
-          if (_currentPage != 0) {
+          if (_currentScreenIndex != 0) {
             _selectTab(1);
             return false;
           }
@@ -104,7 +105,7 @@ class _HomeState extends State<Home> {
       },
       child: Scaffold(
         body: IndexedStack(
-            index: _currentPage,
+            index: _currentScreenIndex,
             children: _listScreen
                 .map((e) =>
                     _navigationTab(naviKey: e.navigatorKey, widget: e.body))
@@ -119,7 +120,7 @@ class Screen {
   final Widget body;
   final Icon icon;
   final String label;
-  final GlobalKey<NavigatorState> navigatorKey;
+  final GlobalKey<NavigatorState>? navigatorKey;
 
   Screen({
     required this.body,
