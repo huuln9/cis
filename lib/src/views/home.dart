@@ -16,39 +16,54 @@ class _HomeState extends State<Home> {
   final List<Screen> _listScreen = [
     Screen(
       body: const MenuGrid(),
-      icon: const Icon(Icons.home),
+      icon: const Icon(Icons.home, color: Colors.red, size: 35),
       label: 'Home',
       navigatorKey: Get.nestedKey(0),
     ),
     Screen(
       body: const MyNotification(),
-      icon: const Icon(Icons.notifications),
+      icon: SizedBox(
+          width: 35,
+          height: 35,
+          child: Image.asset(
+              'packages/vncitizens_home/assets/notification-icon.png')),
       label: 'Notifications',
       navigatorKey: Get.nestedKey(1),
     ),
     Screen(
       body: const Tgg(),
-      icon: const Icon(Icons.center_focus_strong),
+      icon: SizedBox(
+          width: 35,
+          height: 35,
+          child: Image.asset('packages/vncitizens_home/assets/tgg-icon.png')),
       label: 'Tiền Giang',
       navigatorKey: Get.nestedKey(2),
     ),
     Screen(
       body: const MenuList(),
-      icon: const Icon(Icons.settings),
+      icon: SizedBox(
+          width: 35,
+          height: 35,
+          child:
+              Image.asset('packages/vncitizens_home/assets/setting-icon.png')),
       label: 'Setting',
       navigatorKey: Get.nestedKey(3),
     ),
-    // Screen(
-    //   body: const MenuPage(),
-    //   icon: const Icon(Icons.menu_open),
-    //   label: "Menu",
-    //   navigatorKey: GlobalKey<NavigatorState>(),
-    // ),
+    Screen(
+      body: const MenuList(),
+      icon: SizedBox(
+          width: 35,
+          height: 35,
+          child: Image.asset('packages/vncitizens_home/assets/menu-icon.png')),
+      label: "Menu",
+      navigatorKey: Get.nestedKey(4),
+    ),
   ];
 
-  Widget _navigationTab({GlobalKey<NavigatorState>? naviKey, Widget? widget}) {
+  Widget _navigationTab(
+      {GlobalKey<NavigatorState>? navigatorKey, Widget? widget}) {
     return Navigator(
-      key: naviKey,
+      key: navigatorKey,
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == '/place') {
           // final args = settings.arguments as List;
@@ -107,8 +122,8 @@ class _HomeState extends State<Home> {
         body: IndexedStack(
             index: _currentScreenIndex,
             children: _listScreen
-                .map((e) =>
-                    _navigationTab(naviKey: e.navigatorKey, widget: e.body))
+                .map((e) => _navigationTab(
+                    navigatorKey: e.navigatorKey, widget: e.body))
                 .toList()),
         bottomNavigationBar: _bottomNavigationBar(),
       ),
@@ -118,7 +133,7 @@ class _HomeState extends State<Home> {
 
 class Screen {
   final Widget body;
-  final Icon icon;
+  final Widget icon;
   final String label;
   final GlobalKey<NavigatorState>? navigatorKey;
 
