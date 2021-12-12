@@ -1,36 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:get/get.dart';
+import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
 
-final List<String> listImage = [
-  'packages/vncitizens_home/assets/banner.png',
-  'packages/vncitizens_home/assets/header.jpg',
-  'packages/vncitizens_home/assets/banner.png',
-  'packages/vncitizens_home/assets/header.jpg',
-  'packages/vncitizens_home/assets/banner.png',
-];
-
-final List<Widget> listImageSlider = listImage
-    .map(
-      (item) => ClipRRect(
-        child: Stack(
-          children: <Widget>[
-            ClipPath(
-              clipper: WaveClipperTwo(flip: true),
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(item),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    )
-    .toList();
+List<String> listImage = [];
+List<Widget> listImageSlider = [];
 
 class MyBanner extends StatefulWidget implements PreferredSizeWidget {
   @override
@@ -50,6 +25,31 @@ class _MyBannerState extends State<MyBanner> {
 
   @override
   Widget build(BuildContext context) {
+    final ConfigurationController configurationController = Get.find();
+    final config = configurationController.getConfiguration();
+    listImage = List.from(config['homeBanner']);
+    listImageSlider = listImage
+        .map(
+          (item) => ClipRRect(
+            child: Stack(
+              children: <Widget>[
+                ClipPath(
+                  clipper: WaveClipperTwo(flip: true),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: NetworkImage(item),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
+        .toList();
+
     return Scaffold(
       body: Builder(
         builder: (context) {

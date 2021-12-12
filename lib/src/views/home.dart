@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == '/place') {
           // final args = settings.arguments as List;
-          return GetPageRoute(page: () => Place());
+          return GetPageRoute(page: () => const Place());
         }
         return GetPageRoute(page: () => widget!);
       },

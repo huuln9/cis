@@ -3,13 +3,12 @@ import 'package:get/get.dart';
 import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
 import 'package:vncitizens_home/src/views/widgets/my_banner.dart';
 
-class MenuGrid extends StatelessWidget {
+class MenuGrid extends GetView<ConfigurationController> {
   const MenuGrid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final ConfigurationController configurationController = Get.find();
-    final config = configurationController.getConfiguration();
+    final config = controller.getConfiguration();
     List<dynamic> homeMenu =
         config['homeMenu'] != null ? List.from(config['homeMenu']) : [];
 
