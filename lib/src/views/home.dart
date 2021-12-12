@@ -25,8 +25,8 @@ class _HomeState extends State<Home> {
       icon: SizedBox(
           width: 35,
           height: 35,
-          child: Image.asset(
-              'packages/vncitizens_home/assets/notification-icon.png')),
+          child: Image.network(
+              'https://raw.githubusercontent.com/huuln9/images/main/notification-icon.png')),
       label: 'Notifications',
       navigatorKey: Get.nestedKey(1),
     ),
@@ -35,7 +35,8 @@ class _HomeState extends State<Home> {
       icon: SizedBox(
           width: 35,
           height: 35,
-          child: Image.asset('packages/vncitizens_home/assets/tgg-icon.png')),
+          child: Image.network(
+              'https://raw.githubusercontent.com/huuln9/images/main/tgg-icon.png')),
       label: 'Tiền Giang',
       navigatorKey: Get.nestedKey(2),
     ),
@@ -44,8 +45,8 @@ class _HomeState extends State<Home> {
       icon: SizedBox(
           width: 35,
           height: 35,
-          child:
-              Image.asset('packages/vncitizens_home/assets/setting-icon.png')),
+          child: Image.network(
+              'https://raw.githubusercontent.com/huuln9/images/main/setting-icon.png')),
       label: 'Setting',
       navigatorKey: Get.nestedKey(3),
     ),
@@ -54,7 +55,8 @@ class _HomeState extends State<Home> {
       icon: SizedBox(
           width: 35,
           height: 35,
-          child: Image.asset('packages/vncitizens_home/assets/menu-icon.png')),
+          child: Image.network(
+              'https://raw.githubusercontent.com/huuln9/images/main/menu-icon.png')),
       label: "Menu",
       navigatorKey: Get.nestedKey(4),
     ),
