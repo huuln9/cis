@@ -10,7 +10,7 @@ class MenuGrid extends GetView<ConfigurationController> {
   Widget build(BuildContext context) {
     final config = controller.getConfiguration();
     List<dynamic> homeMenu =
-        config['homeMenu'] != null ? List.from(config['homeMenu']) : [];
+        config['homeMenu'] != null ? List.from(config['menuGrid']) : [];
 
     return Scaffold(
       appBar: const PreferredSize(
@@ -31,7 +31,7 @@ class MenuGrid extends GetView<ConfigurationController> {
                   icon: Column(
                     children: [
                       SizedBox(
-                        child: Image.network(homeMenu[i]['iconGrid']),
+                        child: Image.network(homeMenu[i]['icon']),
                         width: 60,
                         height: 60,
                       ),

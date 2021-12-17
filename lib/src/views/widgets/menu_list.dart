@@ -11,7 +11,7 @@ class MenuList extends GetView<AuthenticationController> {
     final ConfigurationController configurationController = Get.find();
     final config = configurationController.getConfiguration();
     List<dynamic> homeMenu =
-        config['homeMenu'] != null ? List.from(config['homeMenu']) : [];
+        config['homeMenu'] != null ? List.from(config['menuList']) : [];
 
     return SafeArea(
       child: Scaffold(
@@ -66,7 +66,7 @@ class MenuList extends GetView<AuthenticationController> {
                         icon: SizedBox(
                           width: 40,
                           height: 40,
-                          child: Image.network(homeMenu[i]['iconList']),
+                          child: Image.network(homeMenu[i]['icon']),
                         ),
                         label: Text(
                           homeMenu[i]['name'],
