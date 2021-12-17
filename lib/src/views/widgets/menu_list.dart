@@ -15,92 +15,136 @@ class MenuList extends GetView<AuthenticationController> {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/bg.jpg"),
-              fit: BoxFit.cover,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(100),
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://raw.githubusercontent.com/huuln9/images/main/banner_2.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => {},
+                icon: const Icon(
+                  Icons.account_circle,
+                  size: 50,
+                  color: Colors.white,
+                ),
+                label: const Text(
+                  "Đăng nhập",
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
             ),
           ),
-          child: Column(
-            children: [
-              const Padding(padding: EdgeInsets.only(bottom: 10)),
-              const Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "TienGiangS",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 10)),
-              Align(
-                alignment: Alignment.topLeft,
-                child: TextButton.icon(
-                  onPressed: () => {},
-                  icon: const Icon(Icons.account_circle, size: 50),
-                  label: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(3),
-                    ),
-                    child: controller.getAuthenticationStatus() ==
-                            AuthenticationStatus.authenticated
-                        ? const Text(
-                            "AUTHENTICATED",
-                            style: TextStyle(fontSize: 18, color: Colors.red),
-                          )
-                        : const Text(
-                            "ĐĂNG NHẬP/ĐĂNG KÝ",
-                            style: TextStyle(fontSize: 18, color: Colors.red),
-                          ),
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 10)),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (var i = 0; i < homeMenu.length; i++)
-                      if (homeMenu[i]['enable'])
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: TextButton.icon(
-                            onPressed: () => Navigator.of(context).pushNamed(
-                              homeMenu[i]['route'],
-                              arguments: [
-                                homeMenu[i]['name'] + "'s List",
-                                homeMenu[i]['tagId'],
-                              ],
-                            ),
-                            icon: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.network(homeMenu[i]['image']),
-                            ),
-                            label: Text(
-                              "     " + homeMenu[i]['name'],
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                              ),
-                            ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var i = 0; i < homeMenu.length; i++)
+              if (homeMenu[i]['enable'])
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 10.0, left: 10, right: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextButton.icon(
+                        onPressed: () => Navigator.of(context).pushNamed(
+                          homeMenu[i]['route'],
+                          arguments: [
+                            homeMenu[i]['name'] + "'s List",
+                            homeMenu[i]['tagId'],
+                          ],
+                        ),
+                        icon: SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: Image.network(homeMenu[i]['iconList']),
+                        ),
+                        label: Text(
+                          homeMenu[i]['name'],
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
                           ),
                         ),
-                  ],
+                      ),
+                      const Padding(
+                        padding:
+                            EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                        child: Divider(thickness: 1.0),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
+          ],
         ),
       ),
     );
+
+    // return SafeArea(
+    //   child: Scaffold(
+    //     body: Column(
+    //       mainAxisAlignment: MainAxisAlignment.start,
+    //       children: [
+    //         Container(
+    //           decoration: BoxDecoration(
+    //             image: DecorationImage(
+    //               image: NetworkImage(config['menuBanner']),
+    //               fit: BoxFit.cover,
+    //             ),
+    //           ),
+    //           child: TextButton.icon(
+    //             onPressed: () => {},
+    //             icon: const Icon(Icons.account_circle, size: 50),
+    //             label: controller.getAuthenticationStatus() ==
+    //                     AuthenticationStatus.authenticated
+    //                 ? const Text(
+    //                     "AUTHENTICATED",
+    //                     style: TextStyle(fontSize: 18, color: Colors.red),
+    //                   )
+    //                 : const Text(
+    //                     "ĐĂNG NHẬP/ĐĂNG KÝ",
+    //                     style: TextStyle(fontSize: 18, color: Colors.red),
+    //                   ),
+    //           ),
+    //         ),
+    //         for (var i = 0; i < homeMenu.length; i++)
+    //           if (homeMenu[i]['enable'])
+    //             Padding(
+    //               padding: const EdgeInsets.all(5.0),
+    //               child: TextButton.icon(
+    //                 onPressed: () => Navigator.of(context).pushNamed(
+    //                   homeMenu[i]['route'],
+    //                   arguments: [
+    //                     homeMenu[i]['name'] + "'s List",
+    //                     homeMenu[i]['tagId'],
+    //                   ],
+    //                 ),
+    //                 icon: SizedBox(
+    //                   width: 30,
+    //                   height: 30,
+    //                   child: Image.network(homeMenu[i]['image']),
+    //                 ),
+    //                 label: Text(
+    //                   "     " + homeMenu[i]['name'],
+    //                   style: const TextStyle(
+    //                     color: Colors.black,
+    //                     fontSize: 18,
+    //                   ),
+    //                 ),
+    //               ),
+    //             ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }

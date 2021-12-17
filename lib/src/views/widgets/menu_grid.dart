@@ -31,7 +31,7 @@ class MenuGrid extends GetView<ConfigurationController> {
                   icon: Column(
                     children: [
                       SizedBox(
-                        child: Image.network(homeMenu[i]['image']),
+                        child: Image.network(homeMenu[i]['iconGrid']),
                         width: 60,
                         height: 60,
                       ),

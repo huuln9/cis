@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
           width: 35,
           height: 35,
           child: Image.network(
-              'https://raw.githubusercontent.com/huuln9/images/main/notification-icon.png')),
+              'https://raw.githubusercontent.com/huuln9/images/main/notification.png')),
       label: 'Notifications',
       navigatorKey: Get.nestedKey(1),
     ),
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
           width: 35,
           height: 35,
           child: Image.network(
-              'https://raw.githubusercontent.com/huuln9/images/main/tgg-icon.png')),
+              'https://raw.githubusercontent.com/huuln9/images/main/tgg.png')),
       label: 'Tiền Giang',
       navigatorKey: Get.nestedKey(2),
     ),
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
           width: 35,
           height: 35,
           child: Image.network(
-              'https://raw.githubusercontent.com/huuln9/images/main/setting-icon.png')),
+              'https://raw.githubusercontent.com/huuln9/images/main/setting.png')),
       label: 'Setting',
       navigatorKey: Get.nestedKey(3),
     ),
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
           width: 35,
           height: 35,
           child: Image.network(
-              'https://raw.githubusercontent.com/huuln9/images/main/menu-icon.png')),
+              'https://raw.githubusercontent.com/huuln9/images/main/menu.png')),
       label: "Menu",
       navigatorKey: Get.nestedKey(4),
     ),
