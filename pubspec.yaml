@@ -16,7 +16,7 @@ dependencies:
   carousel_slider: ^4.0.0
 
   vncitizens_authentication:
-    path: ./lib/packages/vncitizens_authentication
+    path: ../vncitizens_authentication
 
 dev_dependencies:
   flutter_test:

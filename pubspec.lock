@@ -194,7 +194,7 @@ packages:
   vncitizens_authentication:
     dependency: "direct main"
     description:
-      path: "lib/packages/vncitizens_authentication"
+      path: "../vncitizens_authentication"
       relative: true
     source: path
     version: "0.0.1"
