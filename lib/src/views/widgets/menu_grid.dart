@@ -9,8 +9,8 @@ class MenuGrid extends GetView<ConfigurationController> {
   @override
   Widget build(BuildContext context) {
     final config = controller.getConfiguration();
-    List<dynamic> homeMenu =
-        config['homeMenu'] != null ? List.from(config['menuGrid']) : [];
+    List<dynamic> menuGrid =
+        config['menuGrid'] != null ? List.from(config['menuGrid']) : [];
 
     return Scaffold(
       appBar: const PreferredSize(
@@ -25,26 +25,26 @@ class MenuGrid extends GetView<ConfigurationController> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           children: [
-            for (var i = 0; i < homeMenu.length; i++)
-              if (homeMenu[i]['enable'])
+            for (var i = 0; i < menuGrid.length; i++)
+              if (menuGrid[i]['enable'])
                 IconButton(
                   icon: Column(
                     children: [
                       SizedBox(
-                        child: Image.network(homeMenu[i]['icon']),
+                        child: Image.network(menuGrid[i]['icon']),
                         width: 60,
                         height: 60,
                       ),
                       const Padding(padding: EdgeInsets.only(top: 15)),
-                      Text(homeMenu[i]['name'],
+                      Text(menuGrid[i]['name'],
                           style: const TextStyle(fontSize: 13)),
                     ],
                   ),
                   onPressed: () => Navigator.of(context).pushNamed(
-                    homeMenu[i]['route'],
+                    menuGrid[i]['route'],
                     arguments: [
-                      homeMenu[i]['name'] + "'s List",
-                      homeMenu[i]['tagId'],
+                      menuGrid[i]['name'] + "'s List",
+                      menuGrid[i]['tagId'],
                     ],
                   ),
                 )

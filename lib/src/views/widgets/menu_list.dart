@@ -10,8 +10,8 @@ class MenuList extends GetView<AuthenticationController> {
   Widget build(BuildContext context) {
     final ConfigurationController configurationController = Get.find();
     final config = configurationController.getConfiguration();
-    List<dynamic> homeMenu =
-        config['homeMenu'] != null ? List.from(config['menuList']) : [];
+    List<dynamic> menuList =
+        config['menuList'] != null ? List.from(config['menuList']) : [];
 
     return SafeArea(
       child: Scaffold(
@@ -46,8 +46,8 @@ class MenuList extends GetView<AuthenticationController> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (var i = 0; i < homeMenu.length; i++)
-              if (homeMenu[i]['enable'])
+            for (var i = 0; i < menuList.length; i++)
+              if (menuList[i]['enable'])
                 Padding(
                   padding:
                       const EdgeInsets.only(top: 10.0, left: 10, right: 10),
@@ -57,19 +57,19 @@ class MenuList extends GetView<AuthenticationController> {
                     children: [
                       TextButton.icon(
                         onPressed: () => Navigator.of(context).pushNamed(
-                          homeMenu[i]['route'],
+                          menuList[i]['route'],
                           arguments: [
-                            homeMenu[i]['name'] + "'s List",
-                            homeMenu[i]['tagId'],
+                            menuList[i]['name'] + "'s List",
+                            menuList[i]['tagId'],
                           ],
                         ),
                         icon: SizedBox(
                           width: 40,
                           height: 40,
-                          child: Image.network(homeMenu[i]['icon']),
+                          child: Image.network(menuList[i]['icon']),
                         ),
                         label: Text(
-                          homeMenu[i]['name'],
+                          menuList[i]['name'],
                           style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
