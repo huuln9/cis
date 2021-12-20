@@ -42,49 +42,51 @@ class MenuList extends GetView<AuthenticationController> {
             ),
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (var i = 0; i < menuList.length; i++)
-              if (menuList[i]['enable'])
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 10.0, left: 10, right: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TextButton.icon(
-                        onPressed: () => Navigator.of(context).pushNamed(
-                          menuList[i]['route'],
-                          arguments: [
-                            menuList[i]['name'] + "'s List",
-                            menuList[i]['tagId'],
-                          ],
-                        ),
-                        icon: SizedBox(
-                          width: 40,
-                          height: 40,
-                          child: Image.network(menuList[i]['icon']),
-                        ),
-                        label: Text(
-                          menuList[i]['name'],
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (var i = 0; i < menuList.length; i++)
+                if (menuList[i]['enable'])
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 10.0, left: 10, right: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () => Navigator.of(context).pushNamed(
+                            menuList[i]['route'].toString().tr,
+                            arguments: [
+                              menuList[i]['name'] + "'s List",
+                              menuList[i]['tagId'],
+                            ],
+                          ),
+                          icon: SizedBox(
+                            width: 40,
+                            height: 40,
+                            child: Image.network(menuList[i]['icon']),
+                          ),
+                          label: Text(
+                            menuList[i]['name'],
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
-                      ),
-                      const Padding(
-                        padding:
-                            EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                        child: Divider(thickness: 1.0),
-                      ),
-                    ],
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                          child: Divider(thickness: 1.0),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-          ],
+            ],
+          ),
         ),
       ),
     );
