@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
     Screen(
       body: const MenuGrid(),
       icon: const Icon(Icons.home, color: Colors.red, size: 35),
-      label: 'Home',
+      label: 'home'.tr,
       navigatorKey: Get.nestedKey(0),
     ),
     Screen(
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/notification.png')),
-      label: 'Notifications',
+      label: 'notification'.tr,
       navigatorKey: Get.nestedKey(1),
     ),
     Screen(
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/tgg.png')),
-      label: 'Tiền Giang',
+      label: 'app'.tr,
       navigatorKey: Get.nestedKey(2),
     ),
     Screen(
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/setting.png')),
-      label: 'Setting',
+      label: 'setting'.tr,
       navigatorKey: Get.nestedKey(3),
     ),
     Screen(
@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/menu.png')),
-      label: "Menu",
+      label: "menu".tr,
       navigatorKey: Get.nestedKey(4),
     ),
   ];
