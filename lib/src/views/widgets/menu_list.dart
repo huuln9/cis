@@ -42,50 +42,44 @@ class MenuList extends GetView<AuthenticationController> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (var i = 0; i < menuList.length; i++)
-                if (menuList[i]['enable'])
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10.0, left: 10, right: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextButton.icon(
-                          onPressed: () => Navigator.of(context).pushNamed(
-                            menuList[i]['route'].toString().tr,
-                            arguments: [
-                              menuList[i]['name'] + "'s List",
-                              menuList[i]['tagId'],
-                            ],
-                          ),
-                          icon: SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: Image.network(menuList[i]['icon']),
-                          ),
-                          label: Text(
-                            menuList[i]['name'],
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                          child: Divider(thickness: 1.0),
-                        ),
+        body: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: ListView.builder(
+            padding: const EdgeInsets.all(8),
+            itemCount: menuList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextButton.icon(
+                    onPressed: () => Navigator.of(context).pushNamed(
+                      menuList[index]['route'],
+                      arguments: [
+                        menuList[index]['name'] + "'s List",
+                        menuList[index]['tagId'],
                       ],
                     ),
+                    icon: SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: Image.network(menuList[index]['icon']),
+                    ),
+                    label: Text(
+                      menuList[index]['name'].toString().tr,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
-            ],
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: Divider(thickness: 1.0),
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),
