@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vncitizens_home/src/bindings/place_bind.dart';
 import 'package:vncitizens_home/src/views/widgets/menu_grid.dart';
 import 'package:vncitizens_home/src/views/widgets/place.dart';
 import 'package:vncitizens_home/vncitizens_home.dart';
@@ -68,8 +69,11 @@ class _HomeState extends State<Home> {
       key: navigatorKey,
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == '/place') {
-          // final args = settings.arguments as List;
-          return GetPageRoute(page: () => const Place());
+          final args = settings.arguments as List;
+          return GetPageRoute(
+            page: () => Place(placeName: args[0]),
+            binding: PlaceBind(placeTagId: args[1]),
+          );
         }
         return GetPageRoute(page: () => widget!);
       },

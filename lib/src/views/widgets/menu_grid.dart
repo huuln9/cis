@@ -43,7 +43,7 @@ class MenuGrid extends GetView<ConfigurationController> {
                   onPressed: () => Navigator.of(context).pushNamed(
                     menuGrid[i]['route'],
                     arguments: [
-                      menuGrid[i]['name'] + "'s List",
+                      menuGrid[i]['name'].toString().tr + "'s List",
                       menuGrid[i]['tagId'],
                     ],
                   ),
