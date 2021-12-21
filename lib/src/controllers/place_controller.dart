@@ -6,6 +6,7 @@ class PlaceController extends GetxController {
   PlaceService? _placeService;
   final String placeTagId;
   var places = [].obs;
+  var loading = true.obs;
   int page = 0;
   bool last = false;
 
@@ -21,13 +22,18 @@ class PlaceController extends GetxController {
 
   fetchPlaces() async {
     if (last) return;
+
+    loading(true);
+
     final data =
         await _placeService!.fetchPlace(placeTagId: placeTagId, page: page);
     if (data.isEmpty) {
       last = true;
+      loading(false);
     } else {
       places.addAll(data);
       page++;
+      loading(false);
     }
   }
 }
