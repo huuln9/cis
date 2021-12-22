@@ -105,6 +105,13 @@ class _HomeState extends State<Home> {
           .currentState!
           .popUntil((route) => route.isFirst);
     } else {
+      for (var i = 0; i < _listScreen.length; i++) {
+        if (i == index) continue;
+        _listScreen[i]
+            .navigatorKey!
+            .currentState!
+            .popUntil((route) => route.isFirst);
+      }
       setState(() {
         _currentScreenIndex = index;
       });
