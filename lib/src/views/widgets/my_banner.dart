@@ -26,7 +26,7 @@ class _MyBannerState extends State<MyBanner> {
   @override
   Widget build(BuildContext context) {
     final ConfigurationController configurationController = Get.find();
-    final config = configurationController.getConfiguration();
+    final config = configurationController.configuration;
     listImage = List.from(config['homeBanner']);
     listImageSlider = listImage
         .map(

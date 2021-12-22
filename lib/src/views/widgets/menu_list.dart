@@ -9,7 +9,7 @@ class MenuList extends GetView<AuthenticationController> {
   @override
   Widget build(BuildContext context) {
     final ConfigurationController configurationController = Get.find();
-    final config = configurationController.getConfiguration();
+    final config = configurationController.configuration;
     List<dynamic> menuList =
         config['menuList'] != null ? List.from(config['menuList']) : [];
 

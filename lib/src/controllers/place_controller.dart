@@ -12,7 +12,7 @@ class PlaceController extends GetxController {
 
   PlaceController({required this.placeTagId}) {
     final ConfigurationController configurationController = Get.find();
-    final config = configurationController.getConfiguration();
+    final config = configurationController.configuration;
 
     _placeService =
         Get.put(PlaceService(apiGatewayURL: config['apiGatewayURL']));

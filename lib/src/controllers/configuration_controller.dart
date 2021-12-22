@@ -9,7 +9,7 @@ class ConfigurationController {
     _fetchConfiguration();
   }
 
-  getConfiguration() => _configuration;
+  get configuration => _configuration;
 
   _fetchConfiguration() async {
     _configuration = await _configurationService.fetchConfiguration();

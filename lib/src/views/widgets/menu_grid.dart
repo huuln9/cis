@@ -8,7 +8,7 @@ class MenuGrid extends GetView<ConfigurationController> {
 
   @override
   Widget build(BuildContext context) {
-    final config = controller.getConfiguration();
+    final config = controller.configuration;
     List<dynamic> menuGrid =
         config['menuGrid'] != null ? List.from(config['menuGrid']) : [];
 

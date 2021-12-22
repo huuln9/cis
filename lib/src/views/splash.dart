@@ -20,11 +20,11 @@ class _SplashState extends State<Splash> {
   _initApp() async {
     final configurationController = Get.put(ConfigurationController());
 
-    while (configurationController.getConfiguration().isEmpty) {
+    while (configurationController.configuration.isEmpty) {
       await Future.delayed(const Duration(milliseconds: 100));
     }
 
-    final config = configurationController.getConfiguration();
+    final config = configurationController.configuration;
     final authenticationController = Get.put(AuthenticationController(
       ssoURL: config['ssoURL'],
       clientId: config['clientId'],
