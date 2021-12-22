@@ -30,8 +30,8 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - packages/vncitizens_home/assets/banner.png
+  assets:
+    - packages/vncitizens_home/assets/app_icon.png
 
   #
   # For details regarding assets in packages, see

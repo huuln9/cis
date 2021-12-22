@@ -39,21 +39,32 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          alignment: Alignment.center,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: [0.1, 0.9],
-              colors: [
-                Color(0xFFFC5C7D),
-                Color(0xFF6A82FB),
-              ],
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 120,
+              height: 120,
+              child:
+                  Image.asset("packages/vncitizens_home/assets/app_icon.png"),
             ),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 90.0),
-          child: const Text("splash screen")),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 18.0),
+              child: Text(
+                "Phiên bản 1.0.0",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
