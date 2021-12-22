@@ -57,9 +57,10 @@ class _SplashState extends State<Splash> {
               child: Text(
                 "Phiên bản 1.0.0",
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black54,
+                ),
               ),
             ),
           ),
