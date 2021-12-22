@@ -40,12 +40,13 @@ class MenuGrid extends GetView<ConfigurationController> {
                           style: const TextStyle(fontSize: 13)),
                     ],
                   ),
-                  onPressed: () => Navigator.of(context).pushNamed(
+                  onPressed: () => Get.toNamed(
                     menuGrid[i]['route'],
                     arguments: [
                       menuGrid[i]['name'].toString().tr + "'s List",
                       menuGrid[i]['tagId'],
                     ],
+                    id: 0,
                   ),
                 )
           ],

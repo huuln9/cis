@@ -25,19 +25,35 @@ class MenuList extends GetView<AuthenticationController> {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton.icon(
-                onPressed: () => {},
-                icon: const Icon(
-                  Icons.account_circle,
-                  size: 50,
-                  color: Colors.white,
-                ),
-                label: const Text(
-                  "Đăng nhập",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
+            child: Obx(
+              () => Align(
+                alignment: Alignment.centerLeft,
+                child: controller.status.value ==
+                        AuthenticationStatus.authenticated
+                    ? TextButton.icon(
+                        onPressed: () => {},
+                        icon: const Icon(
+                          Icons.account_circle,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        label: const Text(
+                          "Dao",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      )
+                    : TextButton.icon(
+                        onPressed: () => Get.toNamed("/signin", id: 4),
+                        icon: const Icon(
+                          Icons.account_circle,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        label: const Text(
+                          "Đăng nhập",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
               ),
             ),
           ),
@@ -53,12 +69,13 @@ class MenuList extends GetView<AuthenticationController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton.icon(
-                    onPressed: () => Navigator.of(context).pushNamed(
+                    onPressed: () => Get.toNamed(
                       menuList[index]['route'],
                       arguments: [
                         menuList[index]['name'] + "'s List",
                         menuList[index]['tagId'],
                       ],
+                      id: 4,
                     ),
                     icon: SizedBox(
                       width: 40,

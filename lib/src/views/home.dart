@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vncitizens_authentication/vncitizens_authentication.dart';
 import 'package:vncitizens_home/src/bindings/place_bind.dart';
 import 'package:vncitizens_home/src/views/widgets/menu_grid.dart';
 import 'package:vncitizens_home/src/views/widgets/place.dart';
@@ -74,6 +75,9 @@ class _HomeState extends State<Home> {
             page: () => Place(placeName: args[0]),
             binding: PlaceBind(placeTagId: args[1]),
           );
+        }
+        if (settings.name == '/signin') {
+          return GetPageRoute(page: () => SignIn());
         }
         return GetPageRoute(page: () => widget!);
       },
