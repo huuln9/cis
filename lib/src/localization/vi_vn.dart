@@ -25,4 +25,6 @@ final Map<String, String> homeViVN = {
   'Social': 'An sinh xã hội',
   'Education': 'Giáo dục',
   'Economy': 'Kinh tế',
+  'Sign in': 'Đăng nhập', //
+  'View profile': 'Xem thông tin cá nhân',
 };

@@ -47,7 +47,7 @@ class MenuList extends GetView<AuthenticationController> {
                                   TextStyle(fontSize: 18, color: Colors.white),
                             ),
                             Text(
-                              "Xem thông tin cá nhân".tr,
+                              "View profile".tr,
                               style: const TextStyle(
                                   fontSize: 13, color: Colors.white),
                             ),
@@ -61,9 +61,12 @@ class MenuList extends GetView<AuthenticationController> {
                           size: 50,
                           color: Colors.white,
                         ),
-                        label: const Text(
-                          "Đăng nhập",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        label: Text(
+                          "Sign in".tr,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
               ),

@@ -25,4 +25,6 @@ final Map<String, String> homeEnUS = {
   'Social': 'Social',
   'Education': 'Education',
   'Economy': 'Economy',
+  'Sign in': 'Sign in', //
+  'View profile': 'View profile',
 };
