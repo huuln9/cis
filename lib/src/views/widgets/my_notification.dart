@@ -9,7 +9,6 @@ class MyNotification extends StatelessWidget {
       body: Container(
         child: Text('noti'),
       ),
-      // bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }

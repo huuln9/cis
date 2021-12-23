@@ -99,7 +99,6 @@ class PlaceItem extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border.all(),
-        // borderRadius: BorderRadius.circular(10),
       ),
     );
   }

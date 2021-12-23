@@ -11,7 +11,6 @@ class Tgg extends StatelessWidget {
         child: TextButton(
             onPressed: () => Get.toNamed('/test'), child: Text('testt')),
       ),
-      // bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }

@@ -36,8 +36,12 @@ class MenuGrid extends GetView<ConfigurationController> {
                         height: 60,
                       ),
                       const Padding(padding: EdgeInsets.only(top: 15)),
-                      Text(menuGrid[i]['name'].toString().tr,
-                          style: const TextStyle(fontSize: 13)),
+                      Expanded(
+                        child: Text(
+                          menuGrid[i]['name'].toString().tr,
+                          style: const TextStyle(fontSize: 13),
+                        ),
+                      ),
                     ],
                   ),
                   onPressed: () => Get.toNamed(
@@ -52,7 +56,6 @@ class MenuGrid extends GetView<ConfigurationController> {
           ],
         ),
       ),
-      // bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }
