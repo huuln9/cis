@@ -1,8 +1,10 @@
 library vncitizens_home;
 
-export 'src/views/splash.dart';
-export 'src/views/home.dart';
-export 'src/views/widgets/my_notification.dart';
-export 'src/views/widgets/tgg.dart';
-export 'src/views/widgets/menu_list.dart';
-export 'src/localization/localization.dart';
+export 'package:vncitizens_home/src/views/splash.dart';
+export 'package:vncitizens_home/src/views/home.dart';
+export 'package:vncitizens_home/src/views/widgets/my_notification.dart';
+export 'package:vncitizens_home/src/views/widgets/tgg.dart';
+export 'package:vncitizens_home/src/views/widgets/menu_list.dart';
+export 'package:vncitizens_home/src/localization/localization.dart';
+
+export 'package:vncitizens_authentication/src/localization/localization.dart';
