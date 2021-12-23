@@ -5,6 +5,7 @@ import 'package:vncitizens_home/src/bindings/place_bind.dart';
 import 'package:vncitizens_home/src/views/widgets/menu_grid.dart';
 import 'package:vncitizens_home/src/views/widgets/place.dart';
 import 'package:vncitizens_home/vncitizens_home.dart';
+import 'package:vncitizens_setting/vncitizens_setting.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class _HomeState extends State<Home> {
       navigatorKey: Get.nestedKey(2),
     ),
     Screen(
-      body: const MenuList(),
+      body: const Setting(),
       icon: SizedBox(
           width: 35,
           height: 35,

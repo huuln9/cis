@@ -17,6 +17,8 @@ dependencies:
 
   vncitizens_authentication:
     path: ../vncitizens_authentication
+  vncitizens_setting:
+    path: ../vncitizens_setting
 
 dev_dependencies:
   flutter_test:

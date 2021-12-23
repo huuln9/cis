@@ -37,9 +37,21 @@ class MenuList extends GetView<AuthenticationController> {
                           size: 50,
                           color: Colors.white,
                         ),
-                        label: const Text(
-                          "Dao",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        label: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "User đã đăng nhập",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            Text(
+                              "Xem thông tin cá nhân".tr,
+                              style: const TextStyle(
+                                  fontSize: 13, color: Colors.white),
+                            ),
+                          ],
                         ),
                       )
                     : TextButton.icon(
