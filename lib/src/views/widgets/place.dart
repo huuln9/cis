@@ -35,7 +35,7 @@ class Place extends GetView<PlaceController> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(
-            placeName,
+            'list_title'.trParams({'name': placeName}),
             style: const TextStyle(color: Colors.black),
           ),
           centerTitle: true,

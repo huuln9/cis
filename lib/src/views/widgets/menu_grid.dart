@@ -54,7 +54,7 @@ class MenuGrid extends GetView<ConfigurationController> {
                   onPressed: () => Get.toNamed(
                     menuGrid[i]['route'],
                     arguments: [
-                      menuGrid[i]['name'].toString().tr + "'s List",
+                      menuGrid[i]['name'].toString().tr,
                       menuGrid[i]['tagId'],
                     ],
                     id: 0,

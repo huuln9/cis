@@ -27,4 +27,5 @@ final Map<String, String> homeViVN = {
   'Economy': 'Kinh tế',
   'Sign in': 'Đăng nhập', //
   'View profile': 'Xem thông tin cá nhân',
+  'list_title': 'Danh sách @name',
 };

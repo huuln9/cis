@@ -27,4 +27,5 @@ final Map<String, String> homeEnUS = {
   'Economy': 'Economy',
   'Sign in': 'Sign in', //
   'View profile': 'View profile',
+  'list_title': "@name list",
 };

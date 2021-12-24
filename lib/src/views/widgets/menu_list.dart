@@ -87,7 +87,7 @@ class MenuList extends GetView<AuthenticationController> {
                     onPressed: () => Get.toNamed(
                       menuList[index]['route'],
                       arguments: [
-                        menuList[index]['name'] + "'s List",
+                        menuList[index]['name'],
                         menuList[index]['tagId'],
                       ],
                       id: 4,
