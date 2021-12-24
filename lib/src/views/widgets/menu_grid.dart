@@ -12,6 +12,13 @@ class MenuGrid extends GetView<ConfigurationController> {
     List<dynamic> menuGrid =
         config['menuGrid'] != null ? List.from(config['menuGrid']) : [];
 
+    int count = 3;
+    if (MediaQuery.of(context).size.width > 500) {
+      count = 5;
+    } else {
+      count = 3;
+    }
+
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(200),
@@ -21,7 +28,7 @@ class MenuGrid extends GetView<ConfigurationController> {
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: GridView.count(
           padding: const EdgeInsets.all(10),
-          crossAxisCount: 3,
+          crossAxisCount: count,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           children: [

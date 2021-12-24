@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
     Screen(
       body: const MenuGrid(),
       icon: const Icon(Icons.home, color: Colors.red, size: 35),
-      label: 'Home'.tr,
+      label: 'Home',
       navigatorKey: Get.nestedKey(0),
     ),
     Screen(
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/notification.png')),
-      label: 'Notification'.tr,
+      label: 'Notification',
       navigatorKey: Get.nestedKey(1),
     ),
     Screen(
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/tgg.png')),
-      label: 'App'.tr,
+      label: 'App',
       navigatorKey: Get.nestedKey(2),
     ),
     Screen(
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/setting.png')),
-      label: 'Setting'.tr,
+      label: 'Setting',
       navigatorKey: Get.nestedKey(3),
     ),
     Screen(
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
           height: 35,
           child: Image.network(
               'https://raw.githubusercontent.com/huuln9/images/main/bottom_nav/menu.png')),
-      label: "Menu".tr,
+      label: 'Menu',
       navigatorKey: Get.nestedKey(4),
     ),
   ];
@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
         _selectTab(index);
       },
       items: _listScreen
-          .map((e) => BottomNavigationBarItem(icon: e.icon, label: e.label))
+          .map((e) => BottomNavigationBarItem(icon: e.icon, label: e.label.tr))
           .toList(),
     );
   }
