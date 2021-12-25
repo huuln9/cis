@@ -21,7 +21,7 @@ class MenuGrid extends GetView<ConfigurationController> {
 
     return Scaffold(
       appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(200),
+        preferredSize: Size.fromHeight(150),
         child: MyBanner(),
       ),
       body: ScrollConfiguration(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
 
@@ -29,25 +28,23 @@ class _MyBannerState extends State<MyBanner> {
     final config = configurationController.configuration;
     listImage = List.from(config['homeBanner']);
     listImageSlider = listImage
-        .map(
-          (item) => ClipRRect(
-            child: Stack(
-              children: <Widget>[
-                ClipPath(
-                  clipper: WaveClipperTwo(flip: true),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(item),
+        .map((item) => ClipRRect(
+              child: Stack(
+                children: <Widget>[
+                  ClipPath(
+                    clipper: MyWaveClipper(),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(item),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        )
+                  )
+                ],
+              ),
+            ))
         .toList();
 
     return Scaffold(
@@ -64,7 +61,7 @@ class _MyBannerState extends State<MyBanner> {
                   viewportFraction: 1.0,
                   enlargeCenterPage: false,
                   autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayInterval: const Duration(seconds: 15),
                   onPageChanged: (index, reason) {
                     setState(() {
                       _current = index;
@@ -73,7 +70,7 @@ class _MyBannerState extends State<MyBanner> {
                 ),
               ),
               Positioned(
-                top: 120,
+                top: 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: listImage.asMap().entries.map((entry) {
@@ -94,7 +91,7 @@ class _MyBannerState extends State<MyBanner> {
                 ),
               ),
               const Positioned(
-                top: 170,
+                top: 150,
                 left: 10,
                 child: Text(
                   "Tiền Giang",
@@ -107,4 +104,32 @@ class _MyBannerState extends State<MyBanner> {
       ),
     );
   }
+}
+
+class MyWaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+
+    path.lineTo(0.0, size.height - 40);
+
+    path.quadraticBezierTo(size.width / 8, size.height - 50,
+        (size.width / 8) * 2, size.height - 50);
+
+    path.quadraticBezierTo((size.width / 8) * 3, size.height - 50,
+        (size.width / 8) * 4, size.height - 40);
+
+    path.quadraticBezierTo((size.width / 8) * 5, size.height - 30,
+        (size.width / 8) * 6, size.height - 30);
+
+    path.quadraticBezierTo((size.width / 8) * 7, size.height - 30,
+        (size.width / 8) * 8, size.height - 40);
+
+    path.lineTo(size.width, 0.0);
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
