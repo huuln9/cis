@@ -43,40 +43,41 @@ class PlaceType extends GetView<ConfigurationController> {
             crossAxisCount: 2,
             children: <Widget>[
               for (var i = 0; i < otherUtilities.length; i++)
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(24)),
-                  child: IconButton(
-                    icon: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          child: Image.network(otherUtilities[i]['icon']),
-                          width: 100,
-                          height: 100,
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 15)),
-                        Expanded(
-                          child: Text(
-                            otherUtilities[i]['name'].toString().tr,
-                            style: const TextStyle(fontSize: 13),
+                if (otherUtilities[i]['enable'])
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: IconButton(
+                      icon: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            child: Image.network(otherUtilities[i]['icon']),
+                            width: 100,
+                            height: 100,
                           ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () => Get.toNamed(
-                      otherUtilities[i]['route'],
-                      arguments: [
-                        otherUtilities[i]['name'].toString().tr,
-                        otherUtilities[i]['icon'],
-                        otherUtilities[i]['tagId'],
-                      ],
-                      id: navigatorKeyId,
+                          const Padding(padding: EdgeInsets.only(top: 15)),
+                          Expanded(
+                            child: Text(
+                              otherUtilities[i]['name'].toString().tr,
+                              style: const TextStyle(fontSize: 13),
+                            ),
+                          ),
+                        ],
+                      ),
+                      onPressed: () => Get.toNamed(
+                        otherUtilities[i]['route'],
+                        arguments: [
+                          otherUtilities[i]['name'].toString().tr,
+                          otherUtilities[i]['icon'],
+                          otherUtilities[i]['tagId'],
+                        ],
+                        id: navigatorKeyId,
+                      ),
                     ),
                   ),
-                ),
             ],
           ),
         ),
