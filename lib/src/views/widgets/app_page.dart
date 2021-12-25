@@ -28,9 +28,11 @@ class _AppPageState extends State<AppPage> {
     final config = configurationController.configuration;
     final appPageWebViewURL = config['appPageWebViewURL'];
 
-    return WebView(
-      initialUrl: appPageWebViewURL,
-      javascriptMode: JavascriptMode.unrestricted,
+    return SafeArea(
+      child: WebView(
+        initialUrl: appPageWebViewURL,
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
     );
   }
 }
