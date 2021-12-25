@@ -55,9 +55,8 @@ class MenuGrid extends GetView<ConfigurationController> {
                     menuGrid[i]['route'],
                     arguments: [
                       menuGrid[i]['name'].toString().tr,
-                      menuGrid[i]['icon'],
                       ...menuGrid[i]['route'] == '/place'
-                          ? [menuGrid[i]['tagId']]
+                          ? [menuGrid[i]['icon'], menuGrid[i]['tagId']]
                           : [],
                       ...menuGrid[i]['route'] == '/place-type'
                           ? [menuGrid[i]['type'], 0]
