@@ -22,6 +22,8 @@ final Map<String, String> homeViVN = {
   'Medical': 'Y tế',
   'Enviroment': 'Môi trường',
   'Other utilities': 'Tiện ích khác',
+  'ATM station': 'Trạm ATM',
+  'Gas station': 'Trạm xăng',
   'Social': 'An sinh xã hội',
   'Education': 'Giáo dục',
   'Economy': 'Kinh tế',

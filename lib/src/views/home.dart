@@ -4,6 +4,7 @@ import 'package:vncitizens_authentication/vncitizens_authentication.dart';
 import 'package:vncitizens_home/src/bindings/place_bind.dart';
 import 'package:vncitizens_home/src/views/widgets/menu_grid.dart';
 import 'package:vncitizens_home/src/views/widgets/place.dart';
+import 'package:vncitizens_home/src/views/widgets/place_type.dart';
 import 'package:vncitizens_home/vncitizens_home.dart';
 import 'package:vncitizens_setting/vncitizens_setting.dart';
 
@@ -71,6 +72,9 @@ class _HomeState extends State<Home> {
       key: navigatorKey,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
+          case '/place-type':
+            final args = settings.arguments as List;
+            return GetPageRoute(page: () => PlaceType(navigatorKeyId: args[2]));
           case '/place':
             final args = settings.arguments as List;
             return GetPageRoute(

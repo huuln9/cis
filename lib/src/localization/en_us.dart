@@ -22,6 +22,8 @@ final Map<String, String> homeEnUS = {
   'Medical': 'Medical',
   'Enviroment': 'Enviroment',
   'Other utilities': 'Other utilities',
+  'ATM station': 'ATM station',
+  'Gas station': 'Gas station',
   'Social': 'Social',
   'Education': 'Education',
   'Economy': 'Economy',
