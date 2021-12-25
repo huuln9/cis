@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
       navigatorKey: Get.nestedKey(1),
     ),
     Screen(
-      body: const Tgg(),
+      body: const AppPage(),
       icon: SizedBox(
           width: 35,
           height: 35,
@@ -70,17 +70,18 @@ class _HomeState extends State<Home> {
     return Navigator(
       key: navigatorKey,
       onGenerateRoute: (RouteSettings settings) {
-        if (settings.name == '/place') {
-          final args = settings.arguments as List;
-          return GetPageRoute(
-            page: () => Place(placeName: args[0]),
-            binding: PlaceBind(placeTagId: args[1]),
-          );
+        switch (settings.name) {
+          case '/place':
+            final args = settings.arguments as List;
+            return GetPageRoute(
+              page: () => Place(placeName: args[0]),
+              binding: PlaceBind(placeTagId: args[1]),
+            );
+          case '/signin':
+            return GetPageRoute(page: () => SignIn());
+          default:
+            return GetPageRoute(page: () => widget!);
         }
-        if (settings.name == '/signin') {
-          return GetPageRoute(page: () => SignIn());
-        }
-        return GetPageRoute(page: () => widget!);
       },
     );
   }
