@@ -88,6 +88,7 @@ class MenuList extends GetView<AuthenticationController> {
                       menuList[index]['route'],
                       arguments: [
                         menuList[index]['name'].toString().tr,
+                        menuList[index]['icon'],
                         menuList[index]['tagId'],
                       ],
                       id: 4,

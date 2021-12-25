@@ -74,8 +74,8 @@ class _HomeState extends State<Home> {
           case '/place':
             final args = settings.arguments as List;
             return GetPageRoute(
-              page: () => Place(placeName: args[0]),
-              binding: PlaceBind(placeTagId: args[1]),
+              page: () => Place(placeName: args[0], placeIcon: args[1]),
+              binding: PlaceBind(placeTagId: args[2]),
             );
           case '/signin':
             return GetPageRoute(page: () => SignIn());

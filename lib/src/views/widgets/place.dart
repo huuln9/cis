@@ -6,8 +6,10 @@ import 'package:vncitizens_home/src/models/place_model.dart';
 class Place extends GetView<PlaceController> {
   final _scrollController = ScrollController();
   final String placeName;
+  final String placeIcon;
 
-  Place({Key? key, required this.placeName}) : super(key: key) {
+  Place({Key? key, required this.placeName, required this.placeIcon})
+      : super(key: key) {
     _scrollController.addListener(_onScroll);
   }
 
@@ -53,7 +55,8 @@ class Place extends GetView<PlaceController> {
                           child: CircularProgressIndicator(),
                         ),
                       )
-                    : PlaceItem(place: controller.places[index]);
+                    : PlaceItem(
+                        place: controller.places[index], icon: placeIcon);
               },
               itemCount: controller.last
                   ? controller.places.length
@@ -69,8 +72,10 @@ class Place extends GetView<PlaceController> {
 
 class PlaceItem extends StatelessWidget {
   final PlaceModel place;
+  final String icon;
 
-  const PlaceItem({Key? key, required this.place}) : super(key: key);
+  const PlaceItem({Key? key, required this.place, required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +87,7 @@ class PlaceItem extends StatelessWidget {
           contentPadding: const EdgeInsets.all(10),
           leading: ClipRRect(
             borderRadius: BorderRadius.circular(50),
-            child: Image.asset("assets/images/img.jpg"),
+            child: Image.network(icon),
           ),
           title: Text(
             place.name,

@@ -55,6 +55,7 @@ class MenuGrid extends GetView<ConfigurationController> {
                     menuGrid[i]['route'],
                     arguments: [
                       menuGrid[i]['name'].toString().tr,
+                      menuGrid[i]['icon'],
                       menuGrid[i]['tagId'],
                     ],
                     id: 0,
