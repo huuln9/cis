@@ -37,17 +37,18 @@ class MenuGrid extends GetView<ConfigurationController> {
                 IconButton(
                   icon: Column(
                     children: [
-                      SizedBox(
-                        child: Image.network(menuGrid[i]['icon']),
-                        width: 60,
-                        height: 60,
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 15)),
                       Expanded(
-                        child: Text(
-                          menuGrid[i]['name'].toString().tr,
-                          style: const TextStyle(fontSize: 13),
+                        child: SizedBox(
+                          child: Image.network(menuGrid[i]['icon']),
+                          width: 60,
+                          height: 60,
                         ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 8)),
+                      Text(
+                        menuGrid[i]['name'].toString().tr,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 13),
                       ),
                     ],
                   ),

@@ -10,7 +10,7 @@ final Map<String, String> homeViVN = {
   'Prevention': 'Phòng chống dịch bệnh',
   'Covid advise': 'Tư vấn covid',
   'Need info': 'Thông tin cần biết',
-  'Government': 'Chính phủ',
+  'Government': 'Chính quyền',
   'News': 'Tin tức',
   'Camera': 'Camera',
   'Public service': 'Dịch vụ công',

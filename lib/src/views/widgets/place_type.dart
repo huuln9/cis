@@ -17,7 +17,7 @@ class PlaceType extends GetView<ConfigurationController> {
   @override
   Widget build(BuildContext context) {
     final config = controller.configuration;
-    List<dynamic> otherUtilities =
+    List<dynamic> placeTypes =
         config[type] != null ? List.from(config[type]) : [];
 
     return SafeArea(
@@ -48,39 +48,43 @@ class PlaceType extends GetView<ConfigurationController> {
             mainAxisSpacing: 30,
             crossAxisCount: 2,
             children: <Widget>[
-              for (var i = 0; i < otherUtilities.length; i++)
-                if (otherUtilities[i]['enable'])
+              for (var i = 0; i < placeTypes.length; i++)
+                if (placeTypes[i]['enable'])
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(24)),
-                    child: IconButton(
-                      icon: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            child: Image.network(otherUtilities[i]['icon']),
-                            width: 100,
-                            height: 100,
-                          ),
-                          const Padding(padding: EdgeInsets.only(top: 15)),
-                          Expanded(
-                            child: Text(
-                              otherUtilities[i]['name'].toString().tr,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: IconButton(
+                        icon: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                child: Image.network(placeTypes[i]['icon']),
+                                width: 80,
+                                height: 80,
+                              ),
+                            ),
+                            const Padding(padding: EdgeInsets.only(top: 8)),
+                            Text(
+                              placeTypes[i]['name'].toString().tr,
+                              textAlign: TextAlign.center,
                               style: const TextStyle(fontSize: 13),
                             ),
-                          ),
-                        ],
-                      ),
-                      onPressed: () => Get.toNamed(
-                        otherUtilities[i]['route'],
-                        arguments: [
-                          otherUtilities[i]['name'].toString().tr,
-                          otherUtilities[i]['icon'],
-                          otherUtilities[i]['tagId'],
-                        ],
-                        id: navigatorKeyId,
+                          ],
+                        ),
+                        onPressed: () => Get.toNamed(
+                          placeTypes[i]['route'],
+                          arguments: [
+                            placeTypes[i]['name'].toString().tr,
+                            placeTypes[i]['icon'],
+                            placeTypes[i]['tagId'],
+                          ],
+                          id: navigatorKeyId,
+                        ),
                       ),
                     ),
                   ),
