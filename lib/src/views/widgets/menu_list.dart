@@ -89,9 +89,12 @@ class MenuList extends GetView<AuthenticationController> {
                       arguments: [
                         menuList[index]['name'].toString().tr,
                         menuList[index]['icon'],
-                        menuList[index]['route'] == '/place'
-                            ? menuList[index]['tagId']
-                            : 4,
+                        ...menuList[index]['route'] == '/place'
+                            ? [menuList[index]['tagId']]
+                            : [],
+                        ...menuList[index]['route'] == '/place-type'
+                            ? [menuList[index]['type'], 4]
+                            : [],
                       ],
                       id: 4,
                     ),

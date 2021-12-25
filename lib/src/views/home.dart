@@ -74,7 +74,10 @@ class _HomeState extends State<Home> {
         switch (settings.name) {
           case '/place-type':
             final args = settings.arguments as List;
-            return GetPageRoute(page: () => PlaceType(navigatorKeyId: args[2]));
+            return GetPageRoute(
+              page: () => PlaceType(
+                  name: args[0], type: args[2], navigatorKeyId: args[3]),
+            );
           case '/place':
             final args = settings.arguments as List;
             return GetPageRoute(

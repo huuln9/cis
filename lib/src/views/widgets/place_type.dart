@@ -3,16 +3,22 @@ import 'package:get/get.dart';
 import 'package:vncitizens_home/src/controllers/configuration_controller.dart';
 
 class PlaceType extends GetView<ConfigurationController> {
+  final String name;
+  final String type;
   final int navigatorKeyId;
 
-  const PlaceType({Key? key, required this.navigatorKeyId}) : super(key: key);
+  const PlaceType({
+    Key? key,
+    required this.name,
+    required this.type,
+    required this.navigatorKeyId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final config = controller.configuration;
-    List<dynamic> otherUtilities = config['otherUtilities'] != null
-        ? List.from(config['otherUtilities'])
-        : [];
+    List<dynamic> otherUtilities =
+        config[type] != null ? List.from(config[type]) : [];
 
     return SafeArea(
       child: Scaffold(
@@ -30,7 +36,7 @@ class PlaceType extends GetView<ConfigurationController> {
           title: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Other utilities".tr,
+              name,
               style: const TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
