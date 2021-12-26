@@ -42,10 +42,10 @@ class PlaceType extends GetView<ConfigurationController> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(18.0),
           child: GridView.count(
-            crossAxisSpacing: 30,
-            mainAxisSpacing: 30,
+            crossAxisSpacing: 18,
+            mainAxisSpacing: 18,
             crossAxisCount: 2,
             children: <Widget>[
               for (var i = 0; i < placeTypes.length; i++)
