@@ -47,7 +47,8 @@ class Place extends GetView<PlaceController> {
           child: Obx(
             () => ListView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return index >= controller.places.length
+                return index >= controller.places.length &&
+                        controller.places.length >= 10
                     ? const Center(
                         child: SizedBox(
                           width: 24,
@@ -58,7 +59,7 @@ class Place extends GetView<PlaceController> {
                     : PlaceItem(
                         place: controller.places[index], icon: placeIcon);
               },
-              itemCount: controller.last
+              itemCount: controller.last || controller.places.length < 10
                   ? controller.places.length
                   : controller.places.length + 1,
               controller: _scrollController,
