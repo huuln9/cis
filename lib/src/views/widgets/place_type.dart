@@ -68,11 +68,13 @@ class PlaceType extends GetView<ConfigurationController> {
                                 height: 80,
                               ),
                             ),
-                            const Padding(padding: EdgeInsets.only(top: 8)),
-                            Text(
-                              placeTypes[i]['name'].toString().tr,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 13),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                placeTypes[i]['name'].toString().tr,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(fontSize: 13),
+                              ),
                             ),
                           ],
                         ),

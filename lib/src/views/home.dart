@@ -55,7 +55,10 @@ class _HomeState extends State<Home> {
       navigatorKey: Get.nestedKey(3),
     ),
     Screen(
-      body: const MenuList(),
+      body: const AnimatedSwitcher(
+        duration: Duration(seconds: 3),
+        child: MenuList(),
+      ),
       icon: SizedBox(
           width: 35,
           height: 35,
