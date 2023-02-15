@@ -1,14 +1,14 @@
 <?php
-class AccFee extends Controller {
+class Tag extends Controller {
     function List() {
         $this->view("main", [
-            "pages" => "accfee_list"
+            "pages" => "tag_list"
         ]);
     }
 
     function Add() {
         $this->view("main", [
-            "pages" => "accfee_add"
+            "pages" => "tag_add"
         ]);
     }
 }

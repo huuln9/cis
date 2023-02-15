@@ -1,14 +1,14 @@
 <?php
-class TransFee extends Controller {
+class Mv extends Controller {
     function List() {
         $this->view("main", [
-            "pages" => "transfee_list"
+            "pages" => "mv_list"
         ]);
     }
 
     function Add() {
         $this->view("main", [
-            "pages" => "transfee_add"
+            "pages" => "mv_add"
         ]);
     }
 }

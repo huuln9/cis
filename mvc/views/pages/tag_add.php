@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row page-titles">
             <div class="col p-0">
-                <h4>Đầu tư, <span>Mức phí giao dịch</span></h4>
+                <h4>CIS, <span>Thể loại</span></h4>
             </div>
             <div class="col p-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Mức phí giao dịch</a>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Thể loại</a>
                     </li>
                     <li class="breadcrumb-item active">Thêm mới</li>
                 </ol>
@@ -20,7 +20,7 @@
                         <div class="basic-form">
                             <form>
                                 <div class="form-group">
-                                    <input type="number" class="form-control input-default" placeholder="Phần trăm">
+                                    <input placeholder="Tên" class="form-control input-default">
                                 </div>
                                 <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
                             </form>

@@ -1,7 +1,7 @@
 <?php
 class App {
 
-    protected $controller = "cashflow";
+    protected $controller = "mv";
     protected $action = "list";
     protected $params = [];
 

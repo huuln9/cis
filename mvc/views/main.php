@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FINANCE</title>
+    <title>CIS</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $appRootURL ?>/public/home/images/favicon.ico">
     <link href="<?php echo $appRootURL ?>/public/main/css/style.css" rel="stylesheet">
@@ -42,59 +42,38 @@
         <div class="nk-sidebar">
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="nav-label">Đầu tư (chứng khoán)</li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash"></i> <span class="nav-text">Dòng tiền</span></a>
+                    <li class="nav-label">CIS</li>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-human-female"></i> <span class="nav-text">Diễn viên</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/cashflow/list"><i class="mdi mdi-history"></i> Lịch sử</a>
+                                <a href="<?php echo $appRootURL ?>/actress/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="<?php echo $appRootURL ?>/cashflow/add"><i class="mdi mdi-sync"></i> Nạp - rút</a>
+                                <a href="<?php echo $appRootURL ?>/actress/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i> <span class="nav-text">Cổ phiếu</span></a>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/stock/list"><i class="mdi mdi-history"></i> Lịch sử</a>
+                                <a href="<?php echo $appRootURL ?>/mv/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="<?php echo $appRootURL ?>/stock/add"><i class="mdi mdi-sync"></i> Mua - bán</a>
+                                <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash-100"></i> <span class="nav-text">Mức phí giao dịch</span></a>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-tag"></i> <span class="nav-text">Thể loại</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/transfee/list"><i class="mdi mdi-menu"></i> Danh sách</a>
+                                <a href="<?php echo $appRootURL ?>/tag/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="<?php echo $appRootURL ?>/transfee/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
+                                <a href="<?php echo $appRootURL ?>/tag/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash-usd"></i> <span class="nav-text">Phí quản lý tài khoản</span></a>
-                        <ul aria-expanded="false">
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/accfee/list"><i class="mdi mdi-history"></i> Lịch sử</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/accfee/add"><i class="mdi mdi-pen"></i> Ghi lại</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Thu nhập</li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i> <span class="nav-text">Lương thưởng</span></a>
-                        <ul aria-expanded="false">
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/salary/list"><i class="mdi mdi-history"></i> Lịch sử</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/salary/add"><i class="mdi mdi-pen"></i> Ghi lại</a>
-                            </li>
-                        </ul>
-                    </li>
-
+                    
                 </ul>
             </div>
             <!-- #/ nk nav scroll -->

@@ -1,14 +1,14 @@
 <?php
-class CashFlow extends Controller {
+class Actress extends Controller {
     function List() {
         $this->view("main", [
-            "pages" => "cashflow_list"
+            "pages" => "actress_list"
         ]);
     }
 
     function Add() {
         $this->view("main", [
-            "pages" => "cashflow_add"
+            "pages" => "actress_add"
         ]);
     }
 }
