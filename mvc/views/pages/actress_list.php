@@ -37,10 +37,12 @@ $actresses = json_decode($data['actresses']);
                                     <?php foreach ($actresses as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'name'} ?></td>
-                                        <td><img width="200px" src="<?php echo $row->{'avatar'} ?>" alt=""></td>
+                                        <td><img width="200px" src="<?php echo $appRootURL . $row->{'avatar'} ?>" alt=""></td>
                                         <td>
-                                            <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-success"></i> </span>Cập nhật</button>
-                                            <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left"><i class="mdi mdi-delete color-danger"></i> </span>Xóa</button>
+                                            <div class="btn-group">
+                                                <a href="<?php echo $appRootURL ?>/actress/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-secondary"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-secondary"></i> </span>Cập nhật</a>
+                                                <a href="<?php echo $appRootURL ?>/actress/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-primary"><span class="btn-icon-left"><i class="mdi mdi-delete color-primary"></i> </span>Xóa</a>
+                                            </div>
                                         </td>
                                     </tr>
                                     <?php } ?>
