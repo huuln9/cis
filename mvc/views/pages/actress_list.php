@@ -1,3 +1,6 @@
+<?php 
+$actresses = json_decode($data['actresses']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -31,15 +34,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($actresses as $row) { ?>
                                     <tr>
-                                        <td>đasa sadasdasd d</td>
-                                        <td><img width="200px" src="<?php echo $appRootURL ?>/public/assets/images/c3.jpg" alt=""></td>
+                                        <td><?php echo $row->{'name'} ?></td>
+                                        <td><img width="200px" src="<?php echo $row->{'avatar'} ?>" alt=""></td>
                                         <td>
                                             <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-success"></i> </span>Cập nhật</button>
                                             <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left"><i class="mdi mdi-delete color-danger"></i> </span>Xóa</button>
                                         </td>
                                     </tr>
-                                    
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

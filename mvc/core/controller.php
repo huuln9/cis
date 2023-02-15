@@ -1,5 +1,8 @@
 <?php
 class Controller {
+    protected $appRootURL = "http://localhost/github/cis";
+    protected $appRootDir = "../public/storage/";
+
     public function model($model) {
         require_once "./mvc/models/".$model.".php";
         return new $model;

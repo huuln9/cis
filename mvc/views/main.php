@@ -85,7 +85,7 @@
         <!-- footer -->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; huuln 2022</p>
+                <p>Copyright &copy; huuln 2023</p>
             </div>
         </div>
         <!-- #/ footer -->
