@@ -1,6 +1,6 @@
 <?php
 class MvModel extends Database {
-    public function GetAll() {
+    function GetAll() {
         $qr = "SELECT * FROM `mv`;";
         $rs = $this->conn->query($qr);
         
@@ -11,18 +11,29 @@ class MvModel extends Database {
         return json_encode($arr);
     }
 
-    // public function GetOne($id) {
-    //     $qr = "SELECT * FROM `mv` WHERE `id`=$id;";
-    //     $rs = $this->conn->query($qr);
+    public function GetOne($id) {
+        $qr = "SELECT * FROM `mv` WHERE `id`=$id;";
+        $rs = $this->conn->query($qr);
         
-    //     $arr = array();
-    //     while ($row = $rs->fetch_assoc()) {
-    //         $arr[] = $row;
-    //     }
-    //     return json_encode($arr);
-    // }
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
 
-    public function Add($code, $thumbnail, $links) {
+    function GetLastId() {
+        $qr = "SELECT MAX(id) FROM `mv`;";
+        $rs = $this->conn->query($qr);
+
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
+    function Add($code, $thumbnail, $links) {
         $qr = "INSERT INTO `mv` VALUES (null, '$code', '$thumbnail', '$links');";
         $this->conn->query($qr);
     }
@@ -32,9 +43,9 @@ class MvModel extends Database {
     //     $this->conn->query($qr);
     // }
 
-    // public function Delete($id) {
-    //     $qr = "DELETE FROM `mv` WHERE id=$id;";
-    //     $this->conn->query($qr);
-    // }
+    public function Delete($id) {
+        $qr = "DELETE FROM `mv` WHERE id=$id;";
+        $this->conn->query($qr);
+    }
 }
 ?>
