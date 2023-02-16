@@ -27,7 +27,7 @@ $actress = json_decode($data['actress']);
                                 <input type='hidden' name='val-id' value='<?php echo $row->{'id'} ?>'/>
                                 <input type='hidden' name='val-oldAvt' value='<?php echo $row->{'avatar'} ?>'/>
                                 <div class='form-group'>
-                                    <input name='val-name' value="<?php echo $row->{'name'} ?>" placeholder='Tên' class='form-control input-default'>
+                                    <input name='val-name' value="<?php echo $row->{'name'} ?>" placeholder='Tên *' class='form-control input-default' required>
                                 </div>
                                 <div class='form-group'>
                                     <label for=''>Ảnh đại diện</label>

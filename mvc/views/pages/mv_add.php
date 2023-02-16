@@ -1,3 +1,7 @@
+<?php 
+$actresses = json_decode($data['actresses']);
+$tags = json_decode($data['tags']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -18,44 +22,35 @@
                     <div class="card-body">
                         <h4 class="card-title">Thêm mới</h4>
                         <div class="basic-form">
-                            <form>
+                            <form  class='form-valide' action='<?php echo $appRootURL ?>/mv/addbe' method='post' enctype='multipart/form-data'>
+                                <input type='hidden' name='_token' value='{{csrf_token()}}'/>
                                 <div class="form-group">
-                                    <input placeholder="Code" class="form-control input-default">
+                                    <input name='val-code' placeholder="Code" class="form-control input-default">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Ảnh bìa</label>
-                                    <input type="file" class="form-control input-default">
+                                    <input name='val-thumbnail' type="file" class="form-control input-default">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Ảnh nổi bật</label>
-                                    <input type="file" class="form-control input-default">
-                                </div>
-                                <div class="form-group">
-                                    <input placeholder="Link" class="form-control input-default">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label for="">Thể loại</label><br>
-                                    <select size=5 class="form-select" multiple aria-label="multiple select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        <option value="4">Three</option>
-                                        <option value="5">Three</option>
-                                    </select>
+                                    <input name='val-links' placeholder="Link *" class="form-control input-default" required>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="">Diễn viên</label><br>
-                                    <select size=5 class="form-select" multiple aria-label="multiple select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        <option value="4">Three</option>
-                                        <option value="5">Three</option>
+                                    <select name='val-actresses[]' size=5 class="form-select" multiple>
+                                        <?php foreach ($actresses as $row) { ?>
+                                        <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
+                                <div class="form-group mt-3">
+                                    <label for="">Thể loại</label><br>
+                                    <select name='val-tags[]' size=5 class="form-select" multiple>
+                                        <?php foreach ($tags as $row) { ?>
+                                        <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
                             </form>
                         </div>
                     </div>

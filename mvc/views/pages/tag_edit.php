@@ -26,7 +26,7 @@ $tag = json_decode($data['tag']);
                                 <input type='hidden' name='_token' value='{{csrf_token()}}'/>
                                 <input type='hidden' name='val-id' value='<?php echo $row->{'id'} ?>'/>
                                 <div class="form-group">
-                                    <input name='val-name' value="<?php echo $row->{'name'} ?>" placeholder="Tên" class="form-control input-default">
+                                    <input name='val-name' value="<?php echo $row->{'name'} ?>" placeholder="Tên *" class="form-control input-default" required>
                                 </div>
                                 <button type="submit" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
                                 <?php } ?>

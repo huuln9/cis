@@ -21,7 +21,7 @@
                             <form class='form-valide' action='<?php echo $appRootURL ?>/actress/addbe' method='post' enctype='multipart/form-data'>
                                 <input type='hidden' name='_token' value='{{csrf_token()}}'/>
                                 <div class='form-group'>
-                                    <input name='val-name' placeholder='Tên' class='form-control input-default'>
+                                    <input name='val-name' placeholder='Tên *' class='form-control input-default' required>
                                 </div>
                                 <div class='form-group'>
                                     <label for=''>Ảnh đại diện</label>

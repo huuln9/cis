@@ -1,3 +1,6 @@
+<?php 
+$mvs = json_decode($data['mvs']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -34,32 +37,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($mvs as $row) { ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td><img width="200px" src="<?php echo $appRootURL ?>/public/assets/images/c3.jpg" alt=""></td>
+                                        <td><?php echo $row->{'code'} ?></td>
+                                        <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
-                                            <a target="_blank" href="https://pictogrammers.github.io/@mdi/font/2.0.46">https://pictogrammers.github.io/@mdi/font/2.0.46</a>,
-                                            <a target="_blank" href="https://pictogrammers.github.io/@mdi/font/2.0.46">https://pictogrammers.github.io/@mdi/font/2.0.46</a>,
-                                            <a target="_blank" href="https://pictogrammers.github.io/@mdi/font/2.0.46">https://pictogrammers.github.io/@mdi/font/2.0.46</a>
+                                            <a target="_blank" href="<?php echo $row->{'links'} ?>">
+                                                <?php echo $row->{'links'} ?>
+                                            </a>
                                         </td>
                                         <td><b>top 1</b>, <b>top 2</b>, <b>top 3</b></td>
                                         <td><b>top 1dasd</b>, <b>top 2dasd</b>, <b>top dasdsd3</b></td>
                                         <td>
-                                            <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-success"></i> </span>Cập nhật</button>
-                                            <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left"><i class="mdi mdi-delete color-danger"></i> </span>Xóa</button>
+                                            <div class="btn-group">
+                                                <a href="<?php echo $appRootURL ?>/actress/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-secondary"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-secondary"></i> </span>Cập nhật</a>
+                                                <a href="<?php echo $appRootURL ?>/actress/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-primary"><span class="btn-icon-left"><i class="mdi mdi-delete color-primary"></i> </span>Xóa</a>
+                                            </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>January 22</td>
-                                        <td>2.000.000</td>
-                                        <td>2.000.000</td>
-                                        <td>2.000.000</td>
-                                        <td>
-                                            <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="fa fa-edit color-success"></i> </span>Cập nhật</button>
-                                            <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left"><i class="fa fa-edit color-danger"></i> </span>Xóa</button>
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

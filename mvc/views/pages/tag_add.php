@@ -20,7 +20,7 @@
                         <div class="basic-form">
                             <form class='form-valide' action='<?php echo $appRootURL ?>/tag/addbe' method='post'>
                                 <div class="form-group">
-                                    <input name='val-name' placeholder="Tên" class="form-control input-default">
+                                    <input name='val-name' placeholder="Tên *" class="form-control input-default" required>
                                 </div>
                                 <button type="submit" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
                             </form>
