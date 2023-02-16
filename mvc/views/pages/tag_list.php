@@ -1,3 +1,6 @@
+<?php 
+$tags = json_decode($data['tags']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -29,13 +32,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($tags as $row) { ?>
                                     <tr>
-                                        <td>20.000.000</td>
+                                        <td><?php echo $row->{'name'} ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-success"></i> </span>Cập nhật</button>
-                                            <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left"><i class="mdi mdi-delete color-danger"></i> </span>Xóa</button>
+                                            <div class="btn-group">
+                                                <a href="<?php echo $appRootURL ?>/tag/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-secondary"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-secondary"></i> </span>Cập nhật</a>
+                                                <a href="<?php echo $appRootURL ?>/tag/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-primary"><span class="btn-icon-left"><i class="mdi mdi-delete color-primary"></i> </span>Xóa</a>
+                                            </div>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
