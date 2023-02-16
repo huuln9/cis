@@ -37,7 +37,7 @@ class Mv extends Controller {
     function AddBe() {
         $code = $_POST['val-code'];
         $thumbnail = $_FILES['val-thumbnail'];
-        $thumbnailDir = "/public/storage/" . $thumbnail['name'];
+        $thumbnailDir = "/public/storage/" . $thumbnail['name'] . time();
         $links = $_POST['val-links'];
         if(isset($_POST['val-actressIds'])) $actressIds = $_POST['val-actressIds'];
         if(isset($_POST['val-tagIds'])) $tagIds = ($_POST['val-tagIds']);
@@ -45,17 +45,17 @@ class Mv extends Controller {
         if(isset($thumbnail) && $thumbnail['size'] > 0) {
             move_uploaded_file($thumbnail['tmp_name'], "." . $thumbnailDir);
 
-            $this->save($code, $thumbnailDir, $links);
+            $this->mvModel->Add($code, $thumbnailDir, $links);
         } else {
-            $this->save($code, null, $links);
+            $this->mvModel->Add($code, null, $links);
         }
+        
+        $this->saveFk($actressIds, $tagIds);
 
         header("Location: $this->appRootURL/mv/list");
     }
 
-    function save($code, $thumbnailDir, $links) {
-        $this->mvModel->Add($code, $thumbnailDir, $links);
-
+    function saveFk($actressIds, $tagIds) {
         $lastMvIdRs = json_decode($this->mvModel->GetLastId());
         $mvId = $lastMvIdRs[0]->{'MAX(id)'};
 

@@ -46,7 +46,11 @@ $mvs = json_decode($data['mvs']);
                                                 <?php echo $row->{'links'} ?>
                                             </a>
                                         </td>
-                                        <td><b>top 1</b>, <b>top 2</b>, <b>top 3</b></td>
+                                        <td>
+                                            <?php
+                                            
+                                            ?>
+                                        </td>
                                         <td><b>top 1dasd</b>, <b>top 2dasd</b>, <b>top dasdsd3</b></td>
                                         <td>
                                             <div class="btn-group">

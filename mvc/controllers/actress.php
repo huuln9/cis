@@ -24,7 +24,7 @@ class Actress extends Controller {
     function AddBe() {
         $name = $_POST['val-name'];
         $avatar = $_FILES['val-avatar'];
-        $avatarDir = "/public/storage/" . $avatar['name'];
+        $avatarDir = "/public/storage/" . $avatar['name'] . time();
 
         if(isset($avatar) && $avatar['size'] > 0) {
             move_uploaded_file($avatar['tmp_name'], "." . $avatarDir);
@@ -53,7 +53,7 @@ class Actress extends Controller {
         $id = $_POST['val-id'];
         $name = $_POST['val-name'];
         $avatar = $_FILES['val-avatar'];
-        $avatarDir = "/public/storage/" . $avatar['name'];
+        $avatarDir = "/public/storage/" . $avatar['name'] . time();
         $oldAvt = $_POST['val-oldAvt'];
 
         if(isset($avatar) && $avatar['size'] > 0) {
