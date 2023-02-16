@@ -49,7 +49,7 @@ class Mv extends Controller {
         } else {
             $this->mvModel->Add($code, null, $links);
         }
-        
+
         $this->saveFk($actressIds, $tagIds);
 
         header("Location: $this->appRootURL/mv/list");
@@ -81,6 +81,8 @@ class Mv extends Controller {
             if (is_file($file)) unlink($file);
         }
 
+        $this->mvActressModel->DeleteByMv($id);
+        $this->mvTagModel->DeleteByMv($id);
         $this->mvModel->Delete($id);
 
         header("Location: $this->appRootURL/mv/list");

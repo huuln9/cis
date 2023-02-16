@@ -32,9 +32,9 @@ class MvActressModel extends Database {
     //     $this->conn->query($qr);
     // }
 
-    // public function Delete($id) {
-    //     $qr = "DELETE FROM `mv` WHERE id=$id;";
-    //     $this->conn->query($qr);
-    // }
+    public function DeleteByMv($id) {
+        $qr = "DELETE FROM `mv_actress` WHERE mvId=$id;";
+        $this->conn->query($qr);
+    }
 }
 ?>
