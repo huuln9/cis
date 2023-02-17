@@ -25,7 +25,7 @@ $actresses = json_decode($data['actresses']);
                             <!-- <p class="f-s-13">Tổng: 16.000.000 VND</p> -->
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
                                         <th>Tên</th>
@@ -39,9 +39,9 @@ $actresses = json_decode($data['actresses']);
                                         <td><?php echo $row->{'name'} ?></td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'avatar'} ?>" alt=""></td>
                                         <td>
-                                            <div class="btn-group">
-                                                <a href="<?php echo $appRootURL ?>/actress/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-secondary"><span class="btn-icon-left"><i class="mdi mdi-grease-pencil color-secondary"></i> </span>Cập nhật</a>
-                                                <a href="<?php echo $appRootURL ?>/actress/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-rounded btn-primary"><span class="btn-icon-left"><i class="mdi mdi-delete color-primary"></i> </span>Xóa</a>
+                                        <div class="btn-group">
+                                                <a href="<?php echo $appRootURL ?>/actress/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-linkedin"><i class="mdi mdi-grease-pencil"></i></a>
+                                                <a href="<?php echo $appRootURL ?>/actress/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-google-plus"><i class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>

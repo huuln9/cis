@@ -76,7 +76,7 @@ $tags = json_decode($data['tags']);
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/mv/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-linkedin"><i class="mdi mdi-grease-pencil"></i></a>
-                                                <a href="<?php echo $appRootURL ?>/mv/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-youtube"><i class="mdi mdi-delete"></i></a>
+                                                <a href="<?php echo $appRootURL ?>/mv/delete/<?php echo $row->{'id'} ?>" type="button" class="btn btn-google-plus"><i class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>

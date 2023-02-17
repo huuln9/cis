@@ -50,7 +50,7 @@ $tags = json_decode($data['tags']);
                                         <?php } ?>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
+                                <button type='submit' class='btn btn-whatsapp'><i class='mdi mdi-content-save'></i></button>
                             </form>
                         </div>
                     </div>
