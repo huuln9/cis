@@ -79,6 +79,26 @@ class Mv extends Controller {
         }
     }
 
+    function Edit() {
+        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
+        $id = $urlArr[count($urlArr) - 1];
+
+        $mv = $this->mvModel->GetOne($id);
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+
+        $this->view('main', [
+            'pages' => 'mv_edit',
+            "actresses" => $actresses,
+            "tags" => $tags,
+            "mv" => $mv,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags
+        ]);
+    }
+
     function Delete() {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
