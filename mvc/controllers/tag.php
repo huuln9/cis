@@ -1,9 +1,11 @@
 <?php
 class Tag extends Controller {
     private $tagModel;
+    private $mvTagModel;
 
     function __construct() {
         $this->tagModel = $this->model('TagModel');
+        $this->mvTagModel = $this->model('MvTagModel');
     }
 
     function List() {
@@ -54,6 +56,7 @@ class Tag extends Controller {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
 
+        $this->mvTagModel->DeleteByTag($id);
         $this->tagModel->Delete($id);
 
         header("Location: $this->appRootURL/tag/list");

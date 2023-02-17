@@ -20,5 +20,10 @@ class MvActressModel extends Database {
         $qr = "DELETE FROM `mv_actress` WHERE mvId=$id;";
         $this->conn->query($qr);
     }
+
+    public function DeleteByActress($id) {
+        $qr = "DELETE FROM `mv_actress` WHERE actressId=$id;";
+        $this->conn->query($qr);
+    }
 }
 ?>

@@ -1,9 +1,11 @@
 <?php
 class Actress extends Controller {
     private $actressModel;
+    private $mvActressModel;
 
     function __construct() {
         $this->actressModel = $this->model('ActressModel');
+        $this->mvActressModel = $this->model('MvActressModel');
     }
 
     function List() {
@@ -80,6 +82,7 @@ class Actress extends Controller {
             if (is_file($file)) unlink($file);
         }
 
+        $this->mvActressModel->DeleteByActress($id);
         $this->actressModel->Delete($id);
 
         header("Location: $this->appRootURL/actress/list");

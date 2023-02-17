@@ -20,5 +20,10 @@ class MvTagModel extends Database {
         $qr = "DELETE FROM `mv_tag` WHERE mvId=$id;";
         $this->conn->query($qr);
     }
+
+    public function DeleteByTag($id) {
+        $qr = "DELETE FROM `mv_tag` WHERE tagId=$id;";
+        $this->conn->query($qr);
+    }
 }
 ?>
