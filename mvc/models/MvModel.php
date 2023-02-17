@@ -38,10 +38,15 @@ class MvModel extends Database {
         $this->conn->query($qr);
     }
 
-    // public function Edit($id, $name) {
-    //     $qr = "UPDATE `mv` SET `name`='$name' WHERE `id`=$id;";
-    //     $this->conn->query($qr);
-    // }
+    public function Edit($id, $code, $thumbnail, $links) {
+        $qr = "UPDATE `mv` SET `code`='$code', `thumbnail`='$thumbnail', `links`='$links' WHERE `id`=$id;";
+        $this->conn->query($qr);
+    }
+
+    public function EditNotAvt($id, $code, $links) {
+        $qr = "UPDATE `mv` SET `code`='$code', `links`='$links' WHERE `id`=$id;";
+        $this->conn->query($qr);
+    }
 
     public function Delete($id) {
         $qr = "DELETE FROM `mv` WHERE id=$id;";

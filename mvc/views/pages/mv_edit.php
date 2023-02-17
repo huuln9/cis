@@ -25,9 +25,11 @@ $mvTags = json_decode($data['mvTags']);
                     <div class="card-body">
                         <h4 class="card-title">Cập nhật</h4>
                         <div class="basic-form">
-                            <form  class='form-valide' action='<?php echo $appRootURL ?>/mv/addbe' method='post' enctype='multipart/form-data'>
+                            <form  class='form-valide' action='<?php echo $appRootURL ?>/mv/editbe' method='post' enctype='multipart/form-data'>
                                 <?php foreach ($mv as $row) { ?>
                                 <input type='hidden' name='_token' value='{{csrf_token()}}'/>
+                                <input type='hidden' name='val-id' value='<?php echo $row->{'id'} ?>'/>
+                                <input type='hidden' name='val-oldAvt' value='<?php echo $row->{'avatar'} ?>'/>
                                 <div class="form-group">
                                     <input name='val-code' value='<?php echo $row->{'code'} ?>' placeholder="Code" class="form-control input-default">
                                 </div>

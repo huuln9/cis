@@ -79,6 +79,21 @@ class Mv extends Controller {
         }
     }
 
+    function updateFk($mvId, $actressIds, $tagIds) {
+        if(isset($actressIds)) {
+            $this->mvActressModel->DeleteByMv($mvId);
+            foreach($actressIds as $actressId) {
+                $this->mvActressModel->Add($mvId, $actressId);
+            }
+        }
+        if(isset($tagIds)) {
+            $this->mvTagModel->DeleteByMv($mvId);
+            foreach($tagIds as $tagId) {
+                $this->mvTagModel->Add($mvId, $tagId);
+            }
+        }
+    }
+
     function Edit() {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
@@ -97,6 +112,32 @@ class Mv extends Controller {
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags
         ]);
+    }
+
+    function EditBe() {
+        $id = $_POST['val-id'];
+        $oldAvt = $_POST['val-oldAvt'];
+        $code = $_POST['val-code'];
+        $thumbnail = $_FILES['val-thumbnail'];
+        $thumbnailDir = "/public/storage/" . $thumbnail['name'] . time();
+        $links = $_POST['val-links'];
+        if(isset($_POST['val-actressIds'])) $actressIds = $_POST['val-actressIds'];
+        if(isset($_POST['val-tagIds'])) $tagIds = ($_POST['val-tagIds']);
+
+        if(isset($thumbnail) && $thumbnail['size'] > 0) {
+            $file = $this->appRootDir . $oldAvt;
+            if (is_file($file)) unlink($file);
+
+            move_uploaded_file($thumbnail['tmp_name'], "." . $thumbnailDir);
+
+            $this->mvModel->Edit($id, $code, $thumbnailDir, $links);
+        } else {
+            $this->mvModel->EditNotAvt($id, $code, $links);
+        }
+
+        $this->updateFk($id, $actressIds, $tagIds);
+
+        header("Location: $this->appRootURL/mv/list");
     }
 
     function Delete() {
