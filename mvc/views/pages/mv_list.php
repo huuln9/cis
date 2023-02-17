@@ -19,17 +19,14 @@ $tags = json_decode($data['tags']);
                 </ol>
             </div>
         </div>
+        <!-- row -->
         <div class="row">
-            <!-- /# column -->
-            <div class="col-lg-12">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">
-                            <h4>Danh sách</h4>
-                            <!-- <p class="f-s-13">Tổng: 16.000.000 VND</p> -->
-                        </div>
+                        <h4 class="card-title">Data Table</h4>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
                                         <th>Code</th>
@@ -85,6 +82,16 @@ $tags = json_decode($data['tags']);
                                     </tr>
                                     <?php } ?>
                                 </tbody>
+                                <!-- <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </tfoot> -->
                             </table>
                         </div>
                     </div>

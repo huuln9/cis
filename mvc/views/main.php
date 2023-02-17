@@ -9,6 +9,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $appRootURL ?>/public/home/images/favicon.ico">
     <link href="<?php echo $appRootURL ?>/public/main/css/style.css" rel="stylesheet">
+    <link href="<?php echo $appRootURL ?>/public/assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- <script src="<?php echo $appRootURL ?>/public/main/js/modernizr-3.6.0.min.js"></script> -->
 </head>
 
 <body class="v-light vertical-nav fix-header fix-sidebar">
@@ -95,6 +97,10 @@
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/common/common.min.js"></script>
     <!-- Custom script -->
     <script src="<?php echo $appRootURL ?>/public/main/js/custom.min.js"></script>
+
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
 </body>
 
