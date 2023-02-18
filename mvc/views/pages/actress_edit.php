@@ -30,6 +30,9 @@ $actress = json_decode($data['actress']);
                                     <input name='val-name' value="<?php echo $row->{'name'} ?>" placeholder='Tên *' class='form-control input-default' required>
                                 </div>
                                 <div class='form-group'>
+                                    <input name='val-otherNames' value="<?php echo $row->{'otherNames'} ?>" placeholder='Các tên khác' class='form-control input-default' required>
+                                </div>
+                                <div class='form-group'>
                                     <label for=''>Ảnh đại diện</label>
                                     <input name='val-avatar' type='file' class='form-control input-default'>
                                 </div>

@@ -29,6 +29,7 @@ $actresses = json_decode($data['actresses']);
                                 <thead>
                                     <tr>
                                         <th>Tên</th>
+                                        <th>Các tên khác</th>
                                         <th>Ảnh đại diện</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -37,6 +38,7 @@ $actresses = json_decode($data['actresses']);
                                     <?php foreach ($actresses as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'name'} ?></td>
+                                        <td><?php echo $row->{'otherNames'} ?></td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'avatar'} ?>" alt=""></td>
                                         <td>
                                         <div class="btn-group">

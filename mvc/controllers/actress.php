@@ -25,15 +25,16 @@ class Actress extends Controller {
 
     function AddBe() {
         $name = $_POST['val-name'];
+        $otherNames = $_POST['val-otherNames'];
         $avatar = $_FILES['val-avatar'];
         $avatarDir = "/public/storage/" . $avatar['name'] . time();
 
         if(isset($avatar) && $avatar['size'] > 0) {
             move_uploaded_file($avatar['tmp_name'], "." . $avatarDir);
 
-            $this->actressModel->Add($name, $avatarDir);
+            $this->actressModel->Add($name, $otherNames, $avatarDir);
         } else {
-            $this->actressModel->Add($name, null);
+            $this->actressModel->Add($name, $otherNames, null);
         }
 
         header("Location: $this->appRootURL/actress/list");
@@ -54,6 +55,7 @@ class Actress extends Controller {
     function EditBe() {
         $id = $_POST['val-id'];
         $name = $_POST['val-name'];
+        $otherNames = $_POST['val-otherNames'];
         $avatar = $_FILES['val-avatar'];
         $avatarDir = "/public/storage/" . $avatar['name'] . time();
         $oldAvt = $_POST['val-oldAvt'];
@@ -64,9 +66,9 @@ class Actress extends Controller {
 
             move_uploaded_file($avatar['tmp_name'], "." . $avatarDir);
 
-            $this->actressModel->Edit($id, $name, $avatarDir);
+            $this->actressModel->Edit($id, $name, $otherNames, $avatarDir);
         } else {
-            $this->actressModel->EditNotAvt($id, $name);
+            $this->actressModel->EditNotAvt($id, $name, $otherNames);
         }
 
         header("Location: $this->appRootURL/actress/list");
