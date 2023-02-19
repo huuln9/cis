@@ -64,8 +64,8 @@ $mvTags = json_decode($data['mvTags']);
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group mt-3 col-lg-2">
-                                        <label for="">Diễn viên</label><br>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Diễn viên</label><br> -->
                                         <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
                                         <?php foreach ($actressesP2 as $actress) { ?>
                                             <option
@@ -82,8 +82,8 @@ $mvTags = json_decode($data['mvTags']);
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group mt-3 col-lg-2">
-                                        <label for="">Diễn viên</label><br>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Diễn viên</label><br> -->
                                         <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
                                         <?php foreach ($actressesP3 as $actress) { ?>
                                             <option
@@ -118,8 +118,8 @@ $mvTags = json_decode($data['mvTags']);
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group mt-3 col-lg-2">
-                                        <label for="">Thể loại</label><br>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Thể loại</label><br> -->
                                         <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
                                             <?php foreach ($tagsP2 as $tag) { ?>
                                             <option
@@ -136,8 +136,8 @@ $mvTags = json_decode($data['mvTags']);
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group mt-3 col-lg-2">
-                                        <label for="">Thể loại</label><br>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Thể loại</label><br> -->
                                         <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
                                             <?php foreach ($tagsP3 as $tag) { ?>
                                             <option
