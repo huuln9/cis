@@ -44,7 +44,8 @@ $tags = json_decode($data['tags']);
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
                                             <a target="_blank" href="<?php echo $row->{'links'} ?>">
-                                                <?php echo $row->{'links'} ?>
+                                                
+                                                <a href="<?php echo $row->{'links'} ?>" type="button" class="btn btn-tumblr"><i class="mdi mdi-launch"></i></a>
                                             </a>
                                         </td>
                                         <td>
