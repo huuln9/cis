@@ -24,7 +24,7 @@
                                     <input name='val-name' placeholder='Tên *' class='form-control input-default' required>
                                 </div>
                                 <div class='form-group'>
-                                    <input name='val-otherNames' placeholder='Các tên khác' class='form-control input-default' required>
+                                    <input name='val-otherNames' placeholder='Các tên khác' class='form-control input-default'>
                                 </div>
                                 <div class='form-group'>
                                     <label for=''>Ảnh đại diện</label>

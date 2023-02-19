@@ -17,6 +17,12 @@ class Actress extends Controller {
         ]);
     }
 
+    function Home() {
+        $this->view('main', [
+            'pages' => 'actress_home'
+        ]);
+    }
+
     function Add() {
         $this->view('main', [
             'pages' => 'actress_add'

@@ -32,13 +32,22 @@ class Mv extends Controller {
     }
 
     function Add() {
-        $actresses = $this->actressModel->GetAll();
-        $tags = $this->tagModel->GetAll();
+        $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
+        $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
+        $actressesP3 = $this->actressModel->GetPart($this->limit, $this->part3);
+        $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
+        $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
+        $tagsP3 = $this->tagModel->GetPart($this->limit, $this->part3);
 
         $this->view("main", [
             "pages" => "mv_add",
-            "actresses" => $actresses,
-            "tags" => $tags
+            "size" => $this->limit,
+            "actressesP1" => $actressesP1,
+            "actressesP2" => $actressesP2,
+            "actressesP3" => $actressesP3,
+            "tagsP1" => $tagsP1,
+            "tagsP2" => $tagsP2,
+            "tagsP3" => $tagsP3
         ]);
     }
 
@@ -99,16 +108,25 @@ class Mv extends Controller {
         $id = $urlArr[count($urlArr) - 1];
 
         $mv = $this->mvModel->GetOne($id);
-        $actresses = $this->actressModel->GetAll();
-        $tags = $this->tagModel->GetAll();
+        $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
+        $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
+        $actressesP3 = $this->actressModel->GetPart($this->limit, $this->part3);
+        $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
+        $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
+        $tagsP3 = $this->tagModel->GetPart($this->limit, $this->part3);
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
 
         $this->view('main', [
             'pages' => 'mv_edit',
-            "actresses" => $actresses,
-            "tags" => $tags,
             "mv" => $mv,
+            "size" => $this->limit,
+            "actressesP1" => $actressesP1,
+            "actressesP2" => $actressesP2,
+            "actressesP3" => $actressesP3,
+            "tagsP1" => $tagsP1,
+            "tagsP2" => $tagsP2,
+            "tagsP3" => $tagsP3,
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags
         ]);

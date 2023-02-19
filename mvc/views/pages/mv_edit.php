@@ -1,7 +1,12 @@
 <?php 
 $mv = json_decode($data['mv']);
-$actresses = json_decode($data['actresses']);
-$tags = json_decode($data['tags']);
+$size = json_decode($data['size']);
+$actressesP1 = json_decode($data['actressesP1']);
+$actressesP2 = json_decode($data['actressesP2']);
+$actressesP3 = json_decode($data['actressesP3']);
+$tagsP1 = json_decode($data['tagsP1']);
+$tagsP2 = json_decode($data['tagsP2']);
+$tagsP3 = json_decode($data['tagsP3']);
 $mvActresss = json_decode($data['mvActresss']);
 $mvTags = json_decode($data['mvTags']);
 ?>
@@ -40,41 +45,115 @@ $mvTags = json_decode($data['mvTags']);
                                 <div class="form-group">
                                     <input name='val-links' value='<?php echo $row->{'links'} ?>' placeholder="Link *" class="form-control input-default" required>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label for="">Diễn viên</label><br>
-                                    <select name='val-actressIds[]' size=5 class="form-select" multiple>
-                                        <?php foreach ($actresses as $actress) { ?>
-                                        <option
-                                        <?php
-                                        foreach ($mvActresss as $mvActress) {
-                                            if ($mvActress->{'mvId'} == $row->{'id'} && $mvActress->{'actressId'} == $actress->{'id'}) {
-                                                echo 'selected';
+                                <div class="row">
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Diễn viên</label><br>
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                        <?php foreach ($actressesP1 as $actress) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvActresss as $mvActress) {
+                                                if ($mvActress->{'mvId'} == $row->{'id'} && $mvActress->{'actressId'} == $actress->{'id'}) {
+                                                    echo 'selected';
+                                                }
                                             }
-                                        }
-                                        ?> 
-                                        value="<?php echo $actress->{'id'} ?>">
-                                            <?php echo $actress->{'name'} ?>
-                                        </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label for="">Thể loại</label><br>
-                                    <select name='val-tagIds[]' size=5 class="form-select" multiple>
-                                        <?php foreach ($tags as $tag) { ?>
-                                        <option
-                                        <?php
-                                        foreach ($mvTags as $mvTag) {
-                                            if ($mvTag->{'mvId'} == $row->{'id'} && $mvTag->{'tagId'} == $tag->{'id'}) {
-                                                echo 'selected';
+                                            ?> 
+                                            value="<?php echo $actress->{'id'} ?>">
+                                                <?php echo $actress->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Diễn viên</label><br>
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                        <?php foreach ($actressesP2 as $actress) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvActresss as $mvActress) {
+                                                if ($mvActress->{'mvId'} == $row->{'id'} && $mvActress->{'actressId'} == $actress->{'id'}) {
+                                                    echo 'selected';
+                                                }
                                             }
-                                        }
-                                        ?> 
-                                        value="<?php echo $tag->{'id'} ?>">
-                                            <?php echo $tag->{'name'} ?>
-                                        </option>
-                                        <?php } ?>
-                                    </select>
+                                            ?> 
+                                            value="<?php echo $actress->{'id'} ?>">
+                                                <?php echo $actress->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Diễn viên</label><br>
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                        <?php foreach ($actressesP3 as $actress) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvActresss as $mvActress) {
+                                                if ($mvActress->{'mvId'} == $row->{'id'} && $mvActress->{'actressId'} == $actress->{'id'}) {
+                                                    echo 'selected';
+                                                }
+                                            }
+                                            ?> 
+                                            value="<?php echo $actress->{'id'} ?>">
+                                                <?php echo $actress->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Thể loại</label><br>
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP1 as $tag) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvTags as $mvTag) {
+                                                if ($mvTag->{'mvId'} == $row->{'id'} && $mvTag->{'tagId'} == $tag->{'id'}) {
+                                                    echo 'selected';
+                                                }
+                                            }
+                                            ?> 
+                                            value="<?php echo $tag->{'id'} ?>">
+                                                <?php echo $tag->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Thể loại</label><br>
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP2 as $tag) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvTags as $mvTag) {
+                                                if ($mvTag->{'mvId'} == $row->{'id'} && $mvTag->{'tagId'} == $tag->{'id'}) {
+                                                    echo 'selected';
+                                                }
+                                            }
+                                            ?> 
+                                            value="<?php echo $tag->{'id'} ?>">
+                                                <?php echo $tag->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Thể loại</label><br>
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP3 as $tag) { ?>
+                                            <option
+                                            <?php
+                                            foreach ($mvTags as $mvTag) {
+                                                if ($mvTag->{'mvId'} == $row->{'id'} && $mvTag->{'tagId'} == $tag->{'id'}) {
+                                                    echo 'selected';
+                                                }
+                                            }
+                                            ?> 
+                                            value="<?php echo $tag->{'id'} ?>">
+                                                <?php echo $tag->{'name'} ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-rounded btn-success"><span class="btn-icon-left"><i class="mdi mdi-content-save color-success"></i> </span>Lưu</button>
                                 <?php } ?>

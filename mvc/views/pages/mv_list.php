@@ -40,7 +40,7 @@ $tags = json_decode($data['tags']);
                                 <tbody>
                                     <?php foreach ($mvs as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->{'code'} ?></td>
+                                        <td><span class="badge badge-dark"><?php echo $row->{'code'} ?></span></td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
                                             <a target="_blank" href="<?php echo $row->{'links'} ?>">
@@ -53,7 +53,7 @@ $tags = json_decode($data['tags']);
                                                 if ($mvActress->{'mvId'} == $row->{'id'}) {
                                                     foreach ($actresses as $actress) {
                                                         if ($actress->{'id'} == $mvActress->{'actressId'}) {
-                                                            echo "<a target='_blank' href='" . "#" . "'>" . $actress->{'name'} . "</a>" . " ";
+                                                            echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
                                                         }
                                                     }
                                                 }
@@ -61,12 +61,13 @@ $tags = json_decode($data['tags']);
                                             ?>
                                         </td>
                                         <td>
+                                        
                                             <?php
                                             foreach ($mvTags as $mvTag) {
                                                 if ($mvTag->{'mvId'} == $row->{'id'}) {
                                                     foreach ($tags as $tag) {
                                                         if ($tag->{'id'} == $mvTag->{'tagId'}) {
-                                                            echo "<a target='_blank' href='" . "#" . "'>" . $tag->{'name'} . "</a>". " ";
+                                                            echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
                                                         }
                                                     }
                                                 }

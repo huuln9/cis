@@ -1,6 +1,11 @@
 <?php 
-$actresses = json_decode($data['actresses']);
-$tags = json_decode($data['tags']);
+$size = json_decode($data['size']);
+$actressesP1 = json_decode($data['actressesP1']);
+$actressesP2 = json_decode($data['actressesP2']);
+$actressesP3 = json_decode($data['actressesP3']);
+$tagsP1 = json_decode($data['tagsP1']);
+$tagsP2 = json_decode($data['tagsP2']);
+$tagsP3 = json_decode($data['tagsP3']);
 ?>
 <div class="content-body">
     <div class="container">
@@ -34,21 +39,55 @@ $tags = json_decode($data['tags']);
                                 <div class="form-group">
                                     <input name='val-links' placeholder="Link *" class="form-control input-default" required>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label for="">Diễn viên</label><br>
-                                    <select name='val-actressIds[]' size=5 class="form-select" multiple>
-                                        <?php foreach ($actresses as $row) { ?>
-                                        <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label for="">Thể loại</label><br>
-                                    <select name='val-tagIds[]' size=5 class="form-select" multiple>
-                                        <?php foreach ($tags as $row) { ?>
-                                        <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
-                                        <?php } ?>
-                                    </select>
+                                <div class="row">
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Diễn viên</label><br>
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($actressesP1 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Diễn viên</label><br> -->
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($actressesP2 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Diễn viên</label><br> -->
+                                        <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($actressesP3 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3 col-lg-2">
+                                        <label for="">Thể loại</label><br>
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP1 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Thể loại</label><br> -->
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP2 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-2" style="margin-top: 45px;">
+                                        <!-- <label for="">Thể loại</label><br> -->
+                                        <select name='val-tagIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                            <?php foreach ($tagsP3 as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <button type='submit' class='btn btn-whatsapp'><i class='mdi mdi-content-save'></i></button>
                             </form>

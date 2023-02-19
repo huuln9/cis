@@ -1,7 +1,18 @@
 <?php
 class TagModel extends Database {
     public function GetAll() {
-        $qr = "SELECT * FROM `tag`;";
+        $qr = "SELECT * FROM `tag` ORDER BY `name` ASC;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
+    public function GetPart($limit, $offset) {
+        $qr = "SELECT * FROM `tag` ORDER BY `name` ASC LIMIT $limit OFFSET $offset;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
