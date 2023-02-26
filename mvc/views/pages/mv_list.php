@@ -43,7 +43,12 @@ $tags = json_decode($data['tags']);
                                         <td><span class="badge badge-dark"><?php echo $row->{'code'} ?></span></td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
-                                            <a target="_blank" href="<?php echo $row->{'links'} ?>" type="button" class="btn btn-tumblr"><i class="mdi mdi-launch"></i></a>
+                                            <?php
+                                            $urls = explode(" ", $row->{'links'});
+                                            foreach ($urls as $url) {
+                                            ?>
+                                            <a target="_blank" href="<?php echo $url ?>" type="button" class="btn btn-tumblr m-1"><i class="mdi mdi-launch"></i></a>
+                                            <?php } ?>
                                         </td>
                                         <td>
                                             <?php
