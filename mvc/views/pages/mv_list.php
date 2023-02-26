@@ -43,10 +43,7 @@ $tags = json_decode($data['tags']);
                                         <td><span class="badge badge-dark"><?php echo $row->{'code'} ?></span></td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
-                                            <a target="_blank" href="<?php echo $row->{'links'} ?>">
-                                                
-                                                <a href="<?php echo $row->{'links'} ?>" type="button" class="btn btn-tumblr"><i class="mdi mdi-launch"></i></a>
-                                            </a>
+                                            <a target="_blank" href="<?php echo $row->{'links'} ?>" type="button" class="btn btn-tumblr"><i class="mdi mdi-launch"></i></a>
                                         </td>
                                         <td>
                                             <?php
