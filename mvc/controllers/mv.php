@@ -34,14 +34,15 @@ class Mv extends Controller {
     function Add() {
         $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
         $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
-        $actressesP3 = $this->actressModel->GetPart($this->limit, $this->part3);
+        $actressesP3 = $this->actressModel->GetPart($this->p3Limit, $this->part3);
         $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
         $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
-        $tagsP3 = $this->tagModel->GetPart($this->limit, $this->part3);
+        $tagsP3 = $this->tagModel->GetPart($this->p3Limit, $this->part3);
 
         $this->view("main", [
             "pages" => "mv_add",
             "size" => $this->limit,
+            "p3Size" => $this->p3Limit,
             "actressesP1" => $actressesP1,
             "actressesP2" => $actressesP2,
             "actressesP3" => $actressesP3,
@@ -110,10 +111,10 @@ class Mv extends Controller {
         $mv = $this->mvModel->GetOne($id);
         $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
         $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
-        $actressesP3 = $this->actressModel->GetPart($this->limit, $this->part3);
+        $actressesP3 = $this->actressModel->GetPart($this->p3Limit, $this->part3);
         $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
         $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
-        $tagsP3 = $this->tagModel->GetPart($this->limit, $this->part3);
+        $tagsP3 = $this->tagModel->GetPart($this->p3Limit, $this->part3);
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
 
@@ -121,6 +122,7 @@ class Mv extends Controller {
             'pages' => 'mv_edit',
             "mv" => $mv,
             "size" => $this->limit,
+            "p3Size" => $this->p3Limit,
             "actressesP1" => $actressesP1,
             "actressesP2" => $actressesP2,
             "actressesP3" => $actressesP3,

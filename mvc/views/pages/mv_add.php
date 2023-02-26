@@ -1,5 +1,6 @@
 <?php 
 $size = json_decode($data['size']);
+$p3Size = json_decode($data['p3Size']);
 $actressesP1 = json_decode($data['actressesP1']);
 $actressesP2 = json_decode($data['actressesP2']);
 $actressesP3 = json_decode($data['actressesP3']);
@@ -39,6 +40,7 @@ $tagsP3 = json_decode($data['tagsP3']);
                                 <div class="form-group">
                                     <input name='val-links' placeholder="Link *" class="form-control input-default" required>
                                 </div>
+                                <div>Giới hạn hiện tại: <?php echo $size + $size + $p3Size ?> (<?php echo $size . '/' . $size . '/' . $p3Size ?>)</div>
                                 <div class="row">
                                     <div class="form-group mt-3 col-lg-2">
                                         <label for="">Diễn viên</label><br>
