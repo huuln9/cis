@@ -56,7 +56,7 @@ $tags = json_decode($data['tags']);
                                                 if ($mvActress->{'mvId'} == $row->{'id'}) {
                                                     foreach ($actresses as $actress) {
                                                         if ($actress->{'id'} == $mvActress->{'actressId'}) {
-                                                            echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
+                                                            echo "<a href='" . $appRootURL . "/actress/list" . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
                                                         }
                                                     }
                                                 }
@@ -70,7 +70,7 @@ $tags = json_decode($data['tags']);
                                                 if ($mvTag->{'mvId'} == $row->{'id'}) {
                                                     foreach ($tags as $tag) {
                                                         if ($tag->{'id'} == $mvTag->{'tagId'}) {
-                                                            echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
+                                                            echo "<a href='" . $appRootURL . "/tag/list" . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
                                                         }
                                                     }
                                                 }
