@@ -48,7 +48,7 @@ $advs = json_decode($data['advs']);
                                                     if ($actressAdv->{'actressId'} == $row->{'id'}) {
                                                         foreach ($advs as $adv) {
                                                             if ($adv->{'id'} == $actressAdv->{'advId'}) {
-                                                                echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-info'>" . $adv->{'name'} . "</span></a>". " ";
+                                                                echo "<a target='_blank' href='" . "#" . "'><span class='badge badge-primary'>" . $adv->{'name'} . "</span></a>". " ";
                                                             }
                                                         }
                                                     }
