@@ -2,18 +2,26 @@
 class Actress extends Controller {
     private $actressModel;
     private $mvActressModel;
+    private $advModel;
+    private $actressAdvModel;
 
     function __construct() {
         $this->actressModel = $this->model('ActressModel');
         $this->mvActressModel = $this->model('MvActressModel');
+        $this->advModel = $this->model('AdvModel');
+        $this->actressAdvModel = $this->model('ActressAdvModel');
     }
 
     function List() {
         $actresses = $this->actressModel->GetAll();
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
 
         $this->view('main', [
             'pages' => 'actress_list',
-            'actresses' => $actresses
+            'actresses' => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs
         ]);
     }
 
@@ -24,8 +32,17 @@ class Actress extends Controller {
     }
 
     function Add() {
+        $advsP1 = $this->advModel->GetPart($this->limit, $this->part1);
+        $advsP2 = $this->advModel->GetPart($this->limit, $this->part2);
+        $advsP3 = $this->advModel->GetPart($this->p3Limit, $this->part3);
+
         $this->view('main', [
-            'pages' => 'actress_add'
+            'pages' => 'actress_add',
+            "size" => $this->limit,
+            "p3Size" => $this->p3Limit,
+            "advsP1" => $advsP1,
+            "advsP2" => $advsP2,
+            "advsP3" => $advsP3
         ]);
     }
 
@@ -34,6 +51,7 @@ class Actress extends Controller {
         $otherNames = $_POST['val-otherNames'];
         $avatar = $_FILES['val-avatar'];
         $avatarDir = "/public/storage/" . $avatar['name'] . time();
+        if(isset($_POST['val-advIds'])) $advIds = ($_POST['val-advIds']);
 
         if(isset($avatar) && $avatar['size'] > 0) {
             move_uploaded_file($avatar['tmp_name'], "." . $avatarDir);
@@ -43,7 +61,29 @@ class Actress extends Controller {
             $this->actressModel->Add($name, $otherNames, null);
         }
 
+        $this->saveFk($advIds);
+
         header("Location: $this->appRootURL/actress/list");
+    }
+
+    function saveFk($advIds) {
+        $lastActressIdRs = json_decode($this->actressModel->GetLastId());
+        $actressId = $lastActressIdRs[0]->{'MAX(id)'};
+
+        if(isset($advIds)) {
+            foreach($advIds as $advId) {
+                $this->actressAdvModel->Add($actressId, $advId);
+            }
+        }
+    }
+
+    function updateFk($actressId, $advIds) {
+        if(isset($advIds)) {
+            $this->actressAdvModel->DeleteByActress($actressId);
+            foreach($advIds as $advId) {
+                $this->actressAdvModel->Add($actressId, $advId);
+            }
+        }
     }
 
     function Edit() {
@@ -51,10 +91,20 @@ class Actress extends Controller {
         $id = $urlArr[count($urlArr) - 1];
 
         $actress = $this->actressModel->GetOne($id);
+        $advsP1 = $this->advModel->GetPart($this->limit, $this->part1);
+        $advsP2 = $this->advModel->GetPart($this->limit, $this->part2);
+        $advsP3 = $this->advModel->GetPart($this->p3Limit, $this->part3);
+        $actressAdvs = $this->actressAdvModel->GetAll();
 
         $this->view('main', [
             'pages' => 'actress_edit',
-            'actress' => $actress
+            'actress' => $actress,
+            "size" => $this->limit,
+            "p3Size" => $this->p3Limit,
+            "advsP1" => $advsP1,
+            "advsP2" => $advsP2,
+            "advsP3" => $advsP3,
+            "actressAdvs" => $actressAdvs
         ]);
     }
 
@@ -65,6 +115,7 @@ class Actress extends Controller {
         $avatar = $_FILES['val-avatar'];
         $avatarDir = "/public/storage/" . $avatar['name'] . time();
         $oldAvt = $_POST['val-oldAvt'];
+        if(isset($_POST['val-advIds'])) $advIds = ($_POST['val-advIds']);
 
         if(isset($avatar) && $avatar['size'] > 0) {
             $file = $this->appRootDir . $oldAvt;
@@ -76,6 +127,8 @@ class Actress extends Controller {
         } else {
             $this->actressModel->EditNotAvt($id, $name, $otherNames);
         }
+
+        $this->updateFk($id, $advIds);
 
         header("Location: $this->appRootURL/actress/list");
     }

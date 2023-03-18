@@ -11,8 +11,8 @@ class ActressAdvModel extends Database {
         return json_encode($arr);
     }
 
-    public function Add($mvId, $tagId) {
-        $qr = "INSERT INTO `actress_adv` VALUES (null, '$mvId', '$tagId');";
+    public function Add($actressId, $advId) {
+        $qr = "INSERT INTO `actress_adv` VALUES (null, '$actressId', '$advId');";
         $this->conn->query($qr);
     }
 

@@ -45,24 +45,24 @@ $tagsP3 = json_decode($data['tagsP3']);
                                     <div class="form-group mt-3 col-lg-2">
                                         <label for="">Diễn viên</label><br>
                                         <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
-                                            <?php foreach ($actressesP1 as $row) { ?>
-                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php foreach ($actressesP1 as $adv) { ?>
+                                            <option value="<?php echo $adv->{'id'} ?>"><?php echo $adv->{'name'} ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-2" style="margin-top: 45px;">
                                         <!-- <label for="">Diễn viên</label><br> -->
                                         <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
-                                            <?php foreach ($actressesP2 as $row) { ?>
-                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php foreach ($actressesP2 as $adv) { ?>
+                                            <option value="<?php echo $adv->{'id'} ?>"><?php echo $adv->{'name'} ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-2" style="margin-top: 45px;">
                                         <!-- <label for="">Diễn viên</label><br> -->
                                         <select name='val-actressIds[]' size="<?php echo $size ?>" class="form-select" multiple>
-                                            <?php foreach ($actressesP3 as $row) { ?>
-                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php foreach ($actressesP3 as $adv) { ?>
+                                            <option value="<?php echo $adv->{'id'} ?>"><?php echo $adv->{'name'} ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>

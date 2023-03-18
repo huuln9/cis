@@ -63,7 +63,7 @@ $mvTags = json_decode($data['mvTags']);
                                             value="<?php echo $actress->{'id'} ?>">
                                                 <?php echo $actress->{'name'} ?>
                                             </option>
-                                            <?php } ?>
+                                        <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-2" style="margin-top: 45px;">
