@@ -26,10 +26,10 @@
         <div class="header">
             <div class="nav-header">
                 <div class="brand-logo">
-                    <a href="<?php echo $appRootURL ?>/admin">
+                    <a href="<?php echo $appRootURL ?>/mv/list">
                         <b><img src="<?php echo $appRootURL ?>/public/home/images/logo-2.png" alt=""></b>
                         <span class="brand-title">
-                            <img src="<?php echo $appRootURL ?>/public/home/images/logo-3.png" alt="">
+                            <img width="50px" src="<?php echo $appRootURL ?>/public/home/images/cis-logo.png" alt="">
                         </span>
                     </a>
                 </div>
@@ -45,7 +45,8 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">CIS</li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-human-female"></i> <span class="nav-text">Diễn viên</span></a>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-human-female"></i> <span class="nav-text">Diễn viên</span></a>
                         <ul aria-expanded="false">
                             <li>
                                 <a href="<?php echo $appRootURL ?>/actress/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
@@ -55,7 +56,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
                         <ul aria-expanded="false">
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
@@ -65,7 +67,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-tag"></i> <span class="nav-text">Thể loại</span></a>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-tag"></i> <span class="nav-text">Thể loại</span></a>
                         <ul aria-expanded="false">
                             <li>
                                 <a href="<?php echo $appRootURL ?>/tag/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
@@ -87,7 +90,7 @@
         <!-- footer -->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; huuln 2023</p>
+                <p>Copyright &copy; CIS 2023</p>
             </div>
         </div>
         <!-- #/ footer -->
