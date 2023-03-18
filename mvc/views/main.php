@@ -57,17 +57,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-creation"></i> <span class="nav-text">Đặc điểm</span></a>
-                        <ul aria-expanded="false">
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/adv/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/adv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
                         <ul aria-expanded="false">
                             <li>
@@ -75,6 +64,17 @@
                             </li>
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-creation"></i> <span class="nav-text">Đặc điểm</span></a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/adv/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/adv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>

@@ -144,6 +144,7 @@ class Actress extends Controller {
         }
 
         $this->mvActressModel->DeleteByActress($id);
+        $this->actressAdvModel->DeleteByActress($id);
         $this->actressModel->Delete($id);
 
         header("Location: $this->appRootURL/actress/list");

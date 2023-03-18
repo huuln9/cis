@@ -34,7 +34,7 @@ class ActressModel extends Database {
     }
 
     function GetLastId() {
-        $qr = "SELECT MAX(id) FROM `mv`;";
+        $qr = "SELECT MAX(id) FROM `actress`;";
         $rs = $this->conn->query($qr);
 
         $arr = array();
