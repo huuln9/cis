@@ -1,7 +1,7 @@
 <?php
 class MvModel extends Database {
-    function GetAll() {
-        $qr = "SELECT * FROM `mv`;";
+    function GetAll($offset) {
+        $qr = "SELECT * FROM `mv` ORDER BY `id` ASC LIMIT 100 OFFSET $offset;";
         $rs = $this->conn->query($qr);
         
         $arr = array();

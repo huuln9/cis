@@ -60,10 +60,16 @@
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list"><i class="mdi mdi-playlist-play"></i> Danh sách</a>
+                                <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
+                            </li>    
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/list1"><i class="mdi mdi-playlist-play"></i> Danh sách 1</a>
                             </li>
                             <li>
-                                <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-playlist-plus"></i> Thêm mới</a>
+                                <a href="<?php echo $appRootURL ?>/mv/list2"><i class="mdi mdi-playlist-play"></i> Danh sách 2</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/list3"><i class="mdi mdi-playlist-play"></i> Danh sách 3</a>
                             </li>
                         </ul>
                     </li>

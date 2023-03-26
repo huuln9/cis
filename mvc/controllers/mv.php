@@ -14,8 +14,42 @@ class Mv extends Controller {
         $this->mvTagModel = $this->model('MvTagModel');
     }
 
-    function List() {
-        $mvs = $this->mvModel->GetAll();
+    function List1() {
+        $mvs = $this->mvModel->GetAll(0);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
+    function List2() {
+        $mvs = $this->mvModel->GetAll(100);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
+    function List3() {
+        $mvs = $this->mvModel->GetAll(200);
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
         $actresses = $this->actressModel->GetAll();

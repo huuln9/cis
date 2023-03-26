@@ -40,7 +40,14 @@ $tags = json_decode($data['tags']);
                                 <tbody>
                                     <?php foreach ($mvs as $row) { ?>
                                     <tr>
-                                        <td><span class="badge badge-dark"><?php echo $row->{'code'} ?></span></td>
+                                        <td>
+                                        <?php
+                                            $codes = explode(" ", $row->{'code'});
+                                            foreach ($codes as $code) {
+                                            ?>
+                                            <span class="badge badge-dark"><?php echo $code ?></span>
+                                            <?php } ?>
+                                        </td>
                                         <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
                                         <td>
                                             <?php
