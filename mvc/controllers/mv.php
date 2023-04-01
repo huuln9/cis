@@ -30,7 +30,32 @@ class Mv extends Controller {
         $tags = $this->tagModel->GetAll();
 
         $this->view("main", [
-            "pages" => "mv_list_by",
+            "pages" => "mv_list_by_a",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
+    function ListByTag($tagId) {
+        $mvs = array();
+        $mvTags1Rs = $this->mvTagModel->GetByTag($tagId);
+        $mvTags1 = json_decode($mvTags1Rs);
+        foreach ($mvTags1 as $mvTag1) {
+            $mvRs = $this->mvModel->GetOne($mvTag1->mvId);
+            $mv = json_decode($mvRs);
+            array_push($mvs, $mv[0]);
+        }
+        
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetOne($tagId);
+
+        $this->view("main", [
+            "pages" => "mv_list_by_t",
             "mvs" => $mvs,
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags,

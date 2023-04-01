@@ -1,5 +1,5 @@
 <?php 
-$mvs = json_decode($data['mvs']);
+$mvs = $data['mvs'];
 $mvActresss = json_decode($data['mvActresss']);
 $mvTags = json_decode($data['mvTags']);
 $actresses = json_decode($data['actresses']);
@@ -24,7 +24,13 @@ $tags = json_decode($data['tags']);
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Danh sách</h4>
+                        <h4 class="card-title">
+                            <?php
+                            foreach ($tags as $tag) {
+                                echo $tag->{'name'};
+                            }
+                            ?>
+                        </h4>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -77,7 +83,7 @@ $tags = json_decode($data['tags']);
                                                 if ($mvTag->{'mvId'} == $row->{'id'}) {
                                                     foreach ($tags as $tag) {
                                                         if ($tag->{'id'} == $mvTag->{'tagId'}) {
-                                                            echo "<a href='" . $appRootURL . "/mv/listbytag/" . $tag->{'id'} . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
+                                                            echo "<a href='" . $appRootURL . "/tag/list" . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
                                                         }
                                                     }
                                                 }

@@ -11,6 +11,17 @@ class MvTagModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetByTag($tagId) {
+        $qr = "SELECT * FROM `mv_tag` WHERE `tagId`=$tagId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function Add($mvId, $tagId) {
         $qr = "INSERT INTO `mv_tag` VALUES (null, '$mvId', '$tagId');";
         $this->conn->query($qr);
