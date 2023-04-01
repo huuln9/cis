@@ -99,10 +99,7 @@ class Actress extends Controller {
         }
     }
 
-    function Edit() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Edit($id) {
         $actress = $this->actressModel->GetOne($id);
         $advsP1 = $this->advModel->GetPart($this->limit, $this->part1);
         $advsP2 = $this->advModel->GetPart($this->limit, $this->part2);
@@ -146,10 +143,7 @@ class Actress extends Controller {
         header("Location: $this->appRootURL/actress/list");
     }
 
-    function Delete() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Delete($id) {
         $actress = json_decode($this->actressModel->GetOne($id));
         foreach ($actress as $row) {
             $file = $this->appRootDir . $row->{'avatar'};

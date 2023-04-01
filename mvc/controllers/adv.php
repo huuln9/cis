@@ -31,10 +31,7 @@ class Adv extends Controller {
         header("Location: $this->appRootURL/adv/list");
     }
 
-    function Edit() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Edit($id) {
         $adv = $this->advModel->GetOne($id);
 
         $this->view('main', [
@@ -52,10 +49,7 @@ class Adv extends Controller {
         header("Location: $this->appRootURL/adv/list");
     }
 
-    function Delete() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Delete($id) {
         $this->actressAdvModel->DeleteByAdv($id);
         $this->advModel->Delete($id);
 

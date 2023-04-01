@@ -64,6 +64,12 @@
                         <ul aria-expanded="false">
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-plus"></i> Thêm mới</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/listbyactress"><i class="mdi mdi-human-female"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/listbytag"><i class="mdi mdi-tag"></i> Danh sách</a>
                             </li>    
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/list1"><i class="mdi mdi-numeric-1-box"></i> Danh sách</a>

@@ -31,10 +31,7 @@ class Tag extends Controller {
         header("Location: $this->appRootURL/tag/list");
     }
 
-    function Edit() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Edit($id) {
         $tag = $this->tagModel->GetOne($id);
 
         $this->view('main', [
@@ -52,10 +49,7 @@ class Tag extends Controller {
         header("Location: $this->appRootURL/tag/list");
     }
 
-    function Delete() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Delete($id) {
         $this->mvTagModel->DeleteByTag($id);
         $this->tagModel->Delete($id);
 

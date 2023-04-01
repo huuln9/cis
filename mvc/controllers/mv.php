@@ -138,10 +138,7 @@ class Mv extends Controller {
         }
     }
 
-    function Edit() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Edit($id) {
         $mv = $this->mvModel->GetOne($id);
         $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
         $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
@@ -194,10 +191,7 @@ class Mv extends Controller {
         header("Location: $this->appRootURL/mv/list1");
     }
 
-    function Delete() {
-        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-        $id = $urlArr[count($urlArr) - 1];
-
+    function Delete($id) {
         $mv = json_decode($this->mvModel->GetOne($id));
         foreach ($mv as $row) {
             $file = $this->appRootDir . $row->{'thumbnail'};
