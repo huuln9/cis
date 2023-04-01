@@ -12,8 +12,21 @@ class Actress extends Controller {
         $this->actressAdvModel = $this->model('ActressAdvModel');
     }
 
-    function List() {
-        $actresses = $this->actressModel->GetAll();
+    function List1() {
+        $actresses = $this->actressModel->GetPart(100, 0);
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
+
+        $this->view('main', [
+            'pages' => 'actress_list',
+            'actresses' => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs
+        ]);
+    }
+
+    function List2() {
+        $actresses = $this->actressModel->GetPart(100, 100);
         $actressAdvs = $this->actressAdvModel->GetAll();
         $advs = $this->advModel->GetAll();
 

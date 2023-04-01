@@ -104,7 +104,7 @@ class Mv extends Controller {
 
         $this->saveFk($actressIds, $tagIds);
 
-        header("Location: $this->appRootURL/mv/list");
+        header("Location: $this->appRootURL/mv/list1");
     }
 
     function saveFk($actressIds, $tagIds) {
@@ -191,7 +191,7 @@ class Mv extends Controller {
 
         $this->updateFk($id, $actressIds, $tagIds);
 
-        header("Location: $this->appRootURL/mv/list");
+        header("Location: $this->appRootURL/mv/list1");
     }
 
     function Delete() {
