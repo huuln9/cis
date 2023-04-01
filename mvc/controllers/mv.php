@@ -14,6 +14,31 @@ class Mv extends Controller {
         $this->mvTagModel = $this->model('MvTagModel');
     }
 
+    function ListByActress($actressId) {
+        $mvs = array();
+        $mvActresss1Rs = $this->mvActressModel->GetByActress($actressId);
+        $mvActresss1 = json_decode($mvActresss1Rs);
+        foreach ($mvActresss1 as $mvActress1) {
+            $mvRs = $this->mvModel->GetOne($mvActress1->mvId);
+            $mv = json_decode($mvRs);
+            array_push($mvs, $mv[0]);
+        }
+        
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetOne($actressId);
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list_by",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
     function List1() {
         $mvs = $this->mvModel->GetAll(0);
         $mvActresss = $this->mvActressModel->GetAll();

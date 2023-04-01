@@ -11,6 +11,17 @@ class MvActressModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetByActress($actressId) {
+        $qr = "SELECT * FROM `mv_actress` WHERE `actressId`=$actressId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function Add($mvId, $actressId) {
         $qr = "INSERT INTO `mv_actress` VALUES (null, '$mvId', '$actressId');";
         $this->conn->query($qr);
