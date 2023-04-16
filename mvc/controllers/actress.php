@@ -5,7 +5,7 @@ class Actress extends Controller {
     private $advModel;
     private $actressAdvModel;
 
-    private $lastPage = 3;
+    private $lastPage = 2;
 
     function __construct() {
         $this->actressModel = $this->model('ActressModel');

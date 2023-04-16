@@ -22,6 +22,17 @@ class MvModel extends Database {
         return json_encode($arr);
     }
 
+    function GetByCode($code) {
+        $qr = "SELECT * FROM `mv` WHERE `code` LIKE '%$code%' ORDER BY `id` ASC;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     function GetLastId() {
         $qr = "SELECT MAX(id) FROM `mv`;";
         $rs = $this->conn->query($qr);
