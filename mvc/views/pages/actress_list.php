@@ -40,7 +40,11 @@ $advs = json_decode($data['advs']);
                                 <tbody>
                                     <?php foreach ($actresses as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->{'name'} ?></td>
+                                        <td>
+                                            <a href="<?php echo $appRootURL ?>/mv/listbyactress/<?php echo $row->{'id'} ?>">
+                                                <span class='badge badge-info'><?php echo $row->{'name'} ?></span>
+                                            </a>
+                                        </td>
                                         <td><?php echo $row->{'otherNames'} ?></td>
                                         <td>
                                             <?php

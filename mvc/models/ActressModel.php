@@ -22,6 +22,17 @@ class ActressModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetByName($name) {
+        $qr = "SELECT * FROM `actress` WHERE `name` LIKE '%$name%' ORDER BY `name` ASC;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function GetOne($id) {
         $qr = "SELECT * FROM `actress` WHERE `id`=$id;";
         $rs = $this->conn->query($qr);

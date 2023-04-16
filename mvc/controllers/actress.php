@@ -5,6 +5,8 @@ class Actress extends Controller {
     private $advModel;
     private $actressAdvModel;
 
+    private $lastPage = 3;
+
     function __construct() {
         $this->actressModel = $this->model('ActressModel');
         $this->mvActressModel = $this->model('MvActressModel');
@@ -27,6 +29,19 @@ class Actress extends Controller {
 
     function List2() {
         $actresses = $this->actressModel->GetPart(100, 100);
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
+
+        $this->view('main', [
+            'pages' => 'actress_list',
+            'actresses' => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs
+        ]);
+    }
+
+    function f($name) {
+        $actresses = $this->actressModel->GetByName($name);
         $actressAdvs = $this->actressAdvModel->GetAll();
         $advs = $this->advModel->GetAll();
 
@@ -76,7 +91,7 @@ class Actress extends Controller {
 
         $this->saveFk($advIds);
 
-        header("Location: $this->appRootURL/actress/list");
+        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
     }
 
     function saveFk($advIds) {
@@ -140,7 +155,7 @@ class Actress extends Controller {
 
         $this->updateFk($id, $advIds);
 
-        header("Location: $this->appRootURL/actress/list");
+        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
     }
 
     function Delete($id) {
@@ -154,7 +169,7 @@ class Actress extends Controller {
         $this->actressAdvModel->DeleteByActress($id);
         $this->actressModel->Delete($id);
 
-        header("Location: $this->appRootURL/actress/list");
+        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
     }
 }
 ?>
