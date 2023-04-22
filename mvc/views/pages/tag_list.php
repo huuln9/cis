@@ -34,7 +34,11 @@ $tags = json_decode($data['tags']);
                                 <tbody>
                                     <?php foreach ($tags as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->{'name'} ?></td>
+                                        <td>
+                                            <a href="<?php echo $appRootURL ?>/mv/listbytag/<?php echo $row->{'id'} ?>">
+                                                <span class='badge badge-primary'><?php echo $row->{'name'} ?></span>
+                                            </a>
+                                        </td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/tag/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-linkedin"><i class="mdi mdi-grease-pencil"></i></a>

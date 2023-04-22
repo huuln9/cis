@@ -74,6 +74,9 @@
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/list3"><i class="mdi mdi-numeric-3-box"></i> Danh sách</a>
                             </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/list4"><i class="mdi mdi-numeric-4-box"></i> Danh sách</a>
+                            </li>
                         </ul>
                     </li>
                     <li>

@@ -6,7 +6,7 @@ class Mv extends Controller {
     private $mvActressModel;
     private $mvTagModel;
 
-    private $lastPage = 3;
+    private $lastPage = 4;
 
     function __construct() {
         $this->mvModel = $this->model('MvModel');
@@ -119,6 +119,23 @@ class Mv extends Controller {
 
     function List3() {
         $mvs = $this->mvModel->GetAll(200);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
+    function List4() {
+        $mvs = $this->mvModel->GetAll(300);
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
         $actresses = $this->actressModel->GetAll();
