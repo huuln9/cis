@@ -5,7 +5,7 @@ class Actress extends Controller {
     private $advModel;
     private $actressAdvModel;
 
-    private $lastPage = 2;
+    private $lastPage = 3;
 
     function __construct() {
         $this->actressModel = $this->model('ActressModel');
@@ -40,6 +40,32 @@ class Actress extends Controller {
         ]);
     }
 
+    function List3() {
+        $actresses = $this->actressModel->GetPart(100, 200);
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
+
+        $this->view('main', [
+            'pages' => 'actress_list',
+            'actresses' => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs
+        ]);
+    }
+
+    function List4() {
+        $actresses = $this->actressModel->GetPart(100, 300);
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
+
+        $this->view('main', [
+            'pages' => 'actress_list',
+            'actresses' => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs
+        ]);
+    }
+
     function f($name) {
         $actresses = $this->actressModel->GetByName($name);
         $actressAdvs = $this->actressAdvModel->GetAll();
@@ -60,17 +86,11 @@ class Actress extends Controller {
     }
 
     function Add() {
-        $advsP1 = $this->advModel->GetPart($this->limit, $this->part1);
-        $advsP2 = $this->advModel->GetPart($this->limit, $this->part2);
-        $advsP3 = $this->advModel->GetPart($this->p3Limit, $this->part3);
+        $advs = $this->advModel->GetAll();
 
         $this->view('main', [
             'pages' => 'actress_add',
-            "size" => $this->limit,
-            "p3Size" => $this->p3Limit,
-            "advsP1" => $advsP1,
-            "advsP2" => $advsP2,
-            "advsP3" => $advsP3
+            "advs" => $advs,
         ]);
     }
 
@@ -116,19 +136,13 @@ class Actress extends Controller {
 
     function Edit($id) {
         $actress = $this->actressModel->GetOne($id);
-        $advsP1 = $this->advModel->GetPart($this->limit, $this->part1);
-        $advsP2 = $this->advModel->GetPart($this->limit, $this->part2);
-        $advsP3 = $this->advModel->GetPart($this->p3Limit, $this->part3);
+        $advs = $this->advModel->GetAll();
         $actressAdvs = $this->actressAdvModel->GetAll();
 
         $this->view('main', [
             'pages' => 'actress_edit',
             'actress' => $actress,
-            "size" => $this->limit,
-            "p3Size" => $this->p3Limit,
-            "advsP1" => $advsP1,
-            "advsP2" => $advsP2,
-            "advsP3" => $advsP3,
+            "advs" => $advs,
             "actressAdvs" => $actressAdvs
         ]);
     }

@@ -46,7 +46,13 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">CIS</li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-human-female"></i> <span class="nav-text">Diễn viên</span></a>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <i class="mdi mdi-human-female"></i>
+                            <span class="nav-text">Diễn viên</span>
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                1234
+                            </span> -->
+                        </a>
                         <ul aria-expanded="false">
                         <li>
                                 <a href="<?php echo $appRootURL ?>/actress/add"><i class="mdi mdi-plus"></i> Thêm mới</a>
@@ -56,6 +62,13 @@
                             </li>
                             <li>
                                 <a href="<?php echo $appRootURL ?>/actress/list2"><i class="mdi mdi-numeric-2-box"></i> Danh sách</a>
+                            </li>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/actress/list3"><i class="mdi mdi-numeric-3-box"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/actress/list4"><i class="mdi mdi-numeric-4-box"></i> Danh sách</a>
                             </li>
                         </ul>
                     </li>
@@ -76,6 +89,12 @@
                             </li>
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/list4"><i class="mdi mdi-numeric-4-box"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/list5"><i class="mdi mdi-numeric-5-box"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/mv/list6"><i class="mdi mdi-numeric-6-box"></i> Danh sách</a>
                             </li>
                         </ul>
                     </li>

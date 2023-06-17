@@ -6,7 +6,7 @@ class Mv extends Controller {
     private $mvActressModel;
     private $mvTagModel;
 
-    private $lastPage = 4;
+    private $lastPage = 6;
 
     function __construct() {
         $this->mvModel = $this->model('MvModel');
@@ -151,24 +151,48 @@ class Mv extends Controller {
         ]);
     }
 
+    function List5() {
+        $mvs = $this->mvModel->GetAll(400);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
+    function List6() {
+        $mvs = $this->mvModel->GetAll(500);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
     function Add() {
-        $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
-        $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
-        $actressesP3 = $this->actressModel->GetPart($this->p3Limit, $this->part3);
-        $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
-        $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
-        $tagsP3 = $this->tagModel->GetPart($this->p3Limit, $this->part3);
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
 
         $this->view("main", [
             "pages" => "mv_add",
-            "size" => $this->limit,
-            "p3Size" => $this->p3Limit,
-            "actressesP1" => $actressesP1,
-            "actressesP2" => $actressesP2,
-            "actressesP3" => $actressesP3,
-            "tagsP1" => $tagsP1,
-            "tagsP2" => $tagsP2,
-            "tagsP3" => $tagsP3
+            "actresses" => $actresses,
+            "tags" => $tags
         ]);
     }
 
@@ -226,26 +250,16 @@ class Mv extends Controller {
 
     function Edit($id) {
         $mv = $this->mvModel->GetOne($id);
-        $actressesP1 = $this->actressModel->GetPart($this->limit, $this->part1);
-        $actressesP2 = $this->actressModel->GetPart($this->limit, $this->part2);
-        $actressesP3 = $this->actressModel->GetPart($this->p3Limit, $this->part3);
-        $tagsP1 = $this->tagModel->GetPart($this->limit, $this->part1);
-        $tagsP2 = $this->tagModel->GetPart($this->limit, $this->part2);
-        $tagsP3 = $this->tagModel->GetPart($this->p3Limit, $this->part3);
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
 
         $this->view('main', [
             'pages' => 'mv_edit',
             "mv" => $mv,
-            "size" => $this->limit,
-            "p3Size" => $this->p3Limit,
-            "actressesP1" => $actressesP1,
-            "actressesP2" => $actressesP2,
-            "actressesP3" => $actressesP3,
-            "tagsP1" => $tagsP1,
-            "tagsP2" => $tagsP2,
-            "tagsP3" => $tagsP3,
+            "actresses" => $actresses,
+            "tags" => $tags,
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags
         ]);
