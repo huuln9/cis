@@ -36,7 +36,7 @@ $advs = json_decode($data['advs']);
                                 <div class="row">
                                     <div class="form-group mt-3 col-lg-12">
                                         <label for="">Đặc điểm</label><br>
-                                        <select name='val-advIds[]' size="<?php echo $size ?>" class="form-select" multiple>
+                                        <select name='val-advIds[]' size="25" class="form-select" multiple>
                                             <?php foreach ($advs as $adv) { ?>
                                             <option value="<?php echo $adv->{'id'} ?>"><?php echo $adv->{'name'} ?></option>
                                             <?php } ?>
