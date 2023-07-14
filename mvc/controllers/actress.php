@@ -5,8 +5,6 @@ class Actress extends Controller {
     private $advModel;
     private $actressAdvModel;
 
-    private $lastPage = 4;
-
     function __construct() {
         $this->actressModel = $this->model('ActressModel');
         $this->mvActressModel = $this->model('MvActressModel');
@@ -72,7 +70,7 @@ class Actress extends Controller {
 
         $this->saveFk($advIds);
 
-        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
+        header("Location: $this->appRootURL/actress/list/0");
     }
 
     function saveFk($advIds) {
@@ -130,7 +128,7 @@ class Actress extends Controller {
 
         $this->updateFk($id, $advIds);
 
-        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
+        header("Location: $this->appRootURL/actress/list/0");
     }
 
     function Delete($id) {
@@ -144,7 +142,7 @@ class Actress extends Controller {
         $this->actressAdvModel->DeleteByActress($id);
         $this->actressModel->Delete($id);
 
-        header("Location: $this->appRootURL/actress/list" . $this->lastPage);
+        header("Location: $this->appRootURL/actress/list/0");
     }
 }
 ?>

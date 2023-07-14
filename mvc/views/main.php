@@ -1,7 +1,3 @@
-<?php
-    $actressPageCount = 1;
-    $mvPageCount = 1;
-?>
 <!DOCTYPE html>
 <html lang="en">
 

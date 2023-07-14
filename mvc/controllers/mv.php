@@ -6,8 +6,6 @@ class Mv extends Controller {
     private $mvActressModel;
     private $mvTagModel;
 
-    private $lastPage = 8;
-
     function __construct() {
         $this->mvModel = $this->model('MvModel');
         $this->actressModel = $this->model('ActressModel');
@@ -129,7 +127,7 @@ class Mv extends Controller {
 
         $this->saveFk($actressIds, $tagIds);
 
-        header("Location: $this->appRootURL/mv/list" . $this->lastPage);
+        header("Location: $this->appRootURL/mv/list/0");
     }
 
     function saveFk($actressIds, $tagIds) {
@@ -203,7 +201,7 @@ class Mv extends Controller {
 
         $this->updateFk($id, $actressIds, $tagIds);
 
-        header("Location: $this->appRootURL/mv/list" . $this->lastPage);
+        header("Location: $this->appRootURL/mv/list/0");
     }
 
     function Delete($id) {
@@ -217,7 +215,7 @@ class Mv extends Controller {
         $this->mvTagModel->DeleteByMv($id);
         $this->mvModel->Delete($id);
 
-        header("Location: $this->appRootURL/mv/list" . $this->lastPage);
+        header("Location: $this->appRootURL/mv/list/0");
     }
 }
 ?>
