@@ -1,7 +1,18 @@
 <?php
 class MvModel extends Database {
-    function GetAll($offset) {
-        $qr = "SELECT * FROM `mv` ORDER BY `id` ASC LIMIT 100 OFFSET $offset;";
+    function GetAll() {
+        $qr = "SELECT * FROM `mv` ORDER BY `code` ASC";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
+    public function GetPart($limit, $offset) {
+        $qr = "SELECT * FROM `mv` ORDER BY `code` ASC LIMIT $limit OFFSET $offset;";
         $rs = $this->conn->query($qr);
         
         $arr = array();

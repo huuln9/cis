@@ -1,3 +1,7 @@
+<?php
+    $actressPageCount = 1;
+    $mvPageCount = 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,22 +58,18 @@
                             </span> -->
                         </a>
                         <ul aria-expanded="false">
-                        <li>
+                            <li>
                                 <a href="<?php echo $appRootURL ?>/actress/add"><i class="mdi mdi-plus"></i> Thêm mới</a>
                             </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/actress/list1"><i class="mdi mdi-numeric-1-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/actress/list2"><i class="mdi mdi-numeric-2-box"></i> Danh sách</a>
-                            </li>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/actress/list3"><i class="mdi mdi-numeric-3-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/actress/list4"><i class="mdi mdi-numeric-4-box"></i> Danh sách</a>
-                            </li>
+                            <?php
+                                for ($i = 0; $i < $actressPageCount; $i++) {
+                                    echo '
+                                        <li>
+                                            <a href="' . $appRootURL . '/actress/list/' . $i . '"><i class="mdi mdi-numeric-' . $i . '-box"></i> Danh sách</a>
+                                        </li>
+                                    ';
+                                }
+                            ?>
                         </ul>
                     </li>
                     <li>
@@ -78,30 +78,15 @@
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-plus"></i> Thêm mới</a>
                             </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list1"><i class="mdi mdi-numeric-1-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list2"><i class="mdi mdi-numeric-2-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list3"><i class="mdi mdi-numeric-3-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list4"><i class="mdi mdi-numeric-4-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list5"><i class="mdi mdi-numeric-5-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list6"><i class="mdi mdi-numeric-6-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list7"><i class="mdi mdi-numeric-7-box"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $appRootURL ?>/mv/list8"><i class="mdi mdi-numeric-8-box"></i> Danh sách</a>
-                            </li>
+                            <?php
+                                for ($i = 0; $i < $mvPageCount; $i++) {
+                                    echo '
+                                        <li>
+                                            <a href="' . $appRootURL . '/mv/list/' . $i . '"><i class="mdi mdi-numeric-' . $i . '-box"></i> Danh sách</a>
+                                        </li>
+                                    ';
+                                }
+                            ?>
                         </ul>
                     </li>
                     <li>

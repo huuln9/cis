@@ -1,0 +1,50 @@
+CREATE DATABASE cis;
+USE cis;
+
+CREATE TABLE tag (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    name text
+);
+
+CREATE TABLE mv(
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    code text,
+    thumbnail text,
+    links text
+);
+
+CREATE TABLE actress (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    name text,
+    otherNames text,
+    avatar text
+);
+
+CREATE TABLE adv (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    name text
+);
+
+CREATE TABLE mv_tag (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    mvId bigint,
+    tagId bigint,
+    FOREIGN KEY (mvId) REFERENCES mv(id),
+    FOREIGN KEY (tagId) REFERENCES tag(id)
+);
+
+CREATE TABLE mv_actress (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    mvId bigint,
+    actressId bigint,
+    FOREIGN KEY (mvId) REFERENCES mv(id),
+    FOREIGN KEY (actressId) REFERENCES actress(id)
+);
+
+CREATE TABLE actress_adv (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+    actressId bigint,
+    advId bigint,
+    FOREIGN KEY (actressId) REFERENCES actress(id),
+    FOREIGN KEY (advId) REFERENCES adv(id)
+);
