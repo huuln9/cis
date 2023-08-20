@@ -1,7 +1,8 @@
 <?php 
-$actresses = json_decode($data['actresses']);
+$actresses = $data['actresses'];
 $actressAdvs = json_decode($data['actressAdvs']);
 $advs = json_decode($data['advs']);
+$adv1s = json_decode($data['adv1s']);
 ?>
 <div class="content-body">
     <div class="container">
@@ -23,8 +24,13 @@ $advs = json_decode($data['advs']);
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            <h4>Danh sách</h4>
-                            <!-- <p class="f-s-13">Tổng: 16.000.000 VND</p> -->
+                            <h4>
+                            <?php
+                            foreach ($adv1s as $adv1) {
+                                echo $adv1->{"name"};
+                            }
+                            ?>
+                            </h4>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">

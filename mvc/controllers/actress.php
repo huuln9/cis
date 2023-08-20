@@ -25,6 +25,29 @@ class Actress extends Controller {
         ]);
     }
 
+    function ListByAdv($advId) {
+        $actresses = array();
+        $actressAdvs1Rs = $this->actressAdvModel->GetByAdv($advId);
+        $actressAdvs1 = json_decode($actressAdvs1Rs);
+        foreach ($actressAdvs1 as $actressAdv1) {
+            $actressRs = $this->actressModel->GetOne($actressAdv1->actressId);
+            $actress = json_decode($actressRs);
+            array_push($actresses, $actress[0]);
+        }
+
+        $actressAdvs = $this->actressAdvModel->GetAll();
+        $advs = $this->advModel->GetAll();
+        $adv1s = $this->advModel->GetOne($advId);
+
+        $this->view("main", [
+            "pages" => "actress_list_by_a",
+            "actresses" => $actresses,
+            'actressAdvs' => $actressAdvs,
+            'advs' => $advs,
+            'adv1s' => $adv1s
+        ]);
+    }
+
     function f($name) {
         $actresses = $this->actressModel->GetByName($name);
         $actressAdvs = $this->actressAdvModel->GetAll();

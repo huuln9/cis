@@ -11,6 +11,17 @@ class ActressAdvModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetByAdv($advId) {
+        $qr = "SELECT * FROM `actress_adv` WHERE `advId`=$advId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function Add($actressId, $advId) {
         $qr = "INSERT INTO `actress_adv` VALUES (null, '$actressId', '$advId');";
         $this->conn->query($qr);
