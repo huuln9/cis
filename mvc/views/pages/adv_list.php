@@ -34,7 +34,11 @@ $advs = json_decode($data['advs']);
                                 <tbody>
                                     <?php foreach ($advs as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->{'name'} ?></td>
+                                        <td>
+                                            <a href="<?php echo $appRootURL ?>/actress/listbyadv/<?php echo $row->{'id'} ?>">
+                                                <span class='badge badge-primary'><?php echo $row->{'name'} ?></span>
+                                            </a>
+                                        </td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/adv/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-linkedin"><i class="mdi mdi-grease-pencil"></i></a>
