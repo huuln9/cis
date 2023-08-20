@@ -26,7 +26,8 @@ class Mv extends Controller {
         
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
-        $actresses = $this->actressModel->GetOne($actressId);
+        $actresses = $this->actressModel->GetAll();
+        $actresse1s = $this->actressModel->GetOne($actressId);
         $tags = $this->tagModel->GetAll();
 
         $this->view("main", [
@@ -35,6 +36,7 @@ class Mv extends Controller {
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags,
             "actresses" => $actresses,
+            "actresse1s" => $actresse1s,
             "tags" => $tags
         ]);
     }
@@ -52,7 +54,8 @@ class Mv extends Controller {
         $mvActresss = $this->mvActressModel->GetAll();
         $mvTags = $this->mvTagModel->GetAll();
         $actresses = $this->actressModel->GetAll();
-        $tags = $this->tagModel->GetOne($tagId);
+        $tags = $this->tagModel->GetAll();
+        $tag1s = $this->tagModel->GetOne($tagId);
 
         $this->view("main", [
             "pages" => "mv_list_by_t",
@@ -60,7 +63,8 @@ class Mv extends Controller {
             "mvActresss" => $mvActresss,
             "mvTags" => $mvTags,
             "actresses" => $actresses,
-            "tags" => $tags
+            "tags" => $tags,
+            "tag1s" => $tag1s,
         ]);
     }
 

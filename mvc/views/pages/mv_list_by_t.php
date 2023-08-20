@@ -4,6 +4,7 @@ $mvActresss = json_decode($data['mvActresss']);
 $mvTags = json_decode($data['mvTags']);
 $actresses = json_decode($data['actresses']);
 $tags = json_decode($data['tags']);
+$tag1s = json_decode($data['tag1s']);
 ?>
 <div class="content-body">
     <div class="container">
@@ -26,8 +27,8 @@ $tags = json_decode($data['tags']);
                     <div class="card-body">
                         <h4 class="card-title">
                             <?php
-                            foreach ($tags as $tag) {
-                                echo $tag->{'name'};
+                            foreach ($tag1s as $tag1) {
+                                echo $tag1->{'name'};
                             }
                             ?>
                         </h4>
@@ -39,6 +40,7 @@ $tags = json_decode($data['tags']);
                                         <th>Ảnh bìa</th>
                                         <th>Link</th>
                                         <th>Diễn viên</th>
+                                        <th>Thể loại</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -73,6 +75,19 @@ $tags = json_decode($data['tags']);
                                                     }
                                                 }
                                             }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            foreach ($mvTags as $mvTag) {
+                                                if ($mvTag->{'mvId'} == $row->{'id'}) {
+                                                    foreach ($tags as $tag) {
+                                                        if ($tag->{'id'} == $mvTag->{'tagId'}) {
+                                                            echo "<a href='" . $appRootURL . "/mv/listbytag/" . $tag->{'id'} . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
+                                                        }
+                                                    }
+                                                }
+                                            }    
                                             ?>
                                         </td>
                                         <td>

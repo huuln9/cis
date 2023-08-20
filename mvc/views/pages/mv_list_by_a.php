@@ -3,6 +3,7 @@ $mvs = $data['mvs'];
 $mvActresss = json_decode($data['mvActresss']);
 $mvTags = json_decode($data['mvTags']);
 $actresses = json_decode($data['actresses']);
+$actresse1s = json_decode($data['actresse1s']);
 $tags = json_decode($data['tags']);
 ?>
 <div class="content-body">
@@ -26,8 +27,8 @@ $tags = json_decode($data['tags']);
                     <div class="card-body">
                         <h4 class="card-title">
                             <?php
-                            foreach ($actresses as $actress) {
-                                echo $actress->{"name"};
+                            foreach ($actresse1s as $actress1) {
+                                echo $actress1->{"name"};
                             }
                             ?>
                         </h4>
@@ -38,6 +39,7 @@ $tags = json_decode($data['tags']);
                                         <th>Code</th>
                                         <th>Ảnh bìa</th>
                                         <th>Link</th>
+                                        <th>Diễn viên</th>
                                         <th>Thể loại</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -63,17 +65,29 @@ $tags = json_decode($data['tags']);
                                                 <?php } ?>
                                             </td>
                                             <td>
-
+                                                <?php
+                                                foreach ($mvActresss as $mvActress) {
+                                                    if ($mvActress->{'mvId'} == $row->{'id'}) {
+                                                        foreach ($actresses as $actress) {
+                                                            if ($actress->{'id'} == $mvActress->{'actressId'}) {
+                                                                echo "<a href='" . $appRootURL . "/mv/listbyactress/" . $actress->{'id'} . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
                                                 <?php
                                                 foreach ($mvTags as $mvTag) {
                                                     if ($mvTag->{'mvId'} == $row->{'id'}) {
                                                         foreach ($tags as $tag) {
                                                             if ($tag->{'id'} == $mvTag->{'tagId'}) {
-                                                                echo "<a href='" . $appRootURL . "/tag/list" . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>" . " ";
+                                                                echo "<a href='" . $appRootURL . "/mv/listbytag/" . $tag->{'id'} . "'><span class='badge badge-primary'>" . $tag->{'name'} . "</span></a>". " ";
                                                             }
                                                         }
                                                     }
-                                                }
+                                                }    
                                                 ?>
                                             </td>
                                             <td>
