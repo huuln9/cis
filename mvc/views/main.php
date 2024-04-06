@@ -26,7 +26,7 @@
         <div class="header">
             <div class="nav-header">
                 <div class="brand-logo">
-                    <a href="<?php echo $appRootURL ?>/mv/list">
+                    <a href="<?php echo $appRootURL ?>/mv/list/0">
                         <b><img src="<?php echo $appRootURL ?>/public/home/images/logo-2.png" alt=""></b>
                         <span class="brand-title">
                             <img width="50px" src="<?php echo $appRootURL ?>/public/home/images/cis-logo.png" alt="">
