@@ -48,7 +48,7 @@ $tags = json_decode($data['tags']);
                                             <span class="badge badge-dark"><?php echo $code ?></span>
                                             <?php } ?>
                                         </td>
-                                        <td><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></td>
+                                        <td><a href="<?php echo $appRootURL . $row->{'thumbnail'} ?>" target="_blank"><img width="200px" src="<?php echo $appRootURL . $row->{'thumbnail'} ?>" alt=""></a></td>
                                         <td>
                                             <?php
                                             $urls = explode(" ", $row->{'links'});

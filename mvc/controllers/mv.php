@@ -102,6 +102,23 @@ class Mv extends Controller {
         ]);
     }
 
+    function ListImg($page) {
+        $mvs = $this->mvModel->GetPart(100, $page * 100);
+        $mvActresss = $this->mvActressModel->GetAll();
+        $mvTags = $this->mvTagModel->GetAll();
+        $actresses = $this->actressModel->GetAll();
+        $tags = $this->tagModel->GetAll();
+
+        $this->view("main", [
+            "pages" => "mv_list_img",
+            "mvs" => $mvs,
+            "mvActresss" => $mvActresss,
+            "mvTags" => $mvTags,
+            "actresses" => $actresses,
+            "tags" => $tags
+        ]);
+    }
+
     function Add() {
         $actresses = $this->actressModel->GetAll();
         $tags = $this->tagModel->GetAll();
