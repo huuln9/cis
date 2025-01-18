@@ -65,7 +65,7 @@ $adv1s = json_decode($data['adv1s']);
                                                 }
                                             ?>
                                         </td>
-                                        <td><img width="200px" src="<?php echo $appRootURL . $row->{'avatar'} ?>" alt=""></td>
+                                        <td><a href="<?php echo $appRootURL . $row->{'avatar'} ?>" target="_blank"><img width="200px" src="<?php echo $appRootURL . $row->{'avatar'} ?>" alt=""></a></td>
                                         <td>
                                         <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/actress/edit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-linkedin"><i class="mdi mdi-grease-pencil"></i></a>
