@@ -35,7 +35,7 @@ $tags = json_decode($data['tags']);
                                     <input name='val-links' placeholder="Link *" class="form-control input-default" required>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group mt-3 col-lg-6">
+                                    <div class="form-group mt-3 col-lg-9">
                                         <label for="">Diễn viên</label><br>
                                         <select name='val-actressIds[]' size="25" class="form-select" multiple>
                                             <?php foreach ($actresses as $adv) { ?>
@@ -43,7 +43,7 @@ $tags = json_decode($data['tags']);
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group mt-3 col-lg-6">
+                                    <div class="form-group mt-3 col-lg-3">
                                         <label for="">Thể loại</label><br>
                                         <select name='val-tagIds[]' size="25" class="form-select" multiple>
                                             <?php foreach ($tags as $row) { ?>
