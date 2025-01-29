@@ -49,9 +49,9 @@
                         <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="mdi mdi-human-female"></i>
                             <span class="nav-text">Diễn viên</span>
-                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                1234
-                            </span> -->
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                <?php echo number_format($actressPageCount * 100, 0, ',', '.'); ?>
+                            </span>
                         </a>
                         <ul aria-expanded="false">
                             <li>
@@ -61,7 +61,7 @@
                                 for ($i = 0; $i < $actressPageCount; $i++) {
                                     echo '
                                         <li>
-                                            <a href="' . $appRootURL . '/actress/list/' . $i . '"><i class="mdi mdi-numeric-' . $i % 10 . '-box"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
+                                            <a href="' . $appRootURL . '/actress/list/' . $i . '"><i class="mdi mdi-reproduction"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
                                         </li>
                                     ';
                                 }
@@ -69,7 +69,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-film"></i> <span class="nav-text">Mv</span></a>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <i class="mdi mdi-film"></i>
+                            <span class="nav-text">Mv</span>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                <?php echo number_format($mvPageCount * 100, 0, ',', '.'); ?>
+                            </span>
+                        </a>
                         <ul aria-expanded="false">
                             <li>
                                 <a href="<?php echo $appRootURL ?>/mv/add"><i class="mdi mdi-plus"></i> Thêm mới</a>
@@ -78,7 +84,7 @@
                                 for ($i = 0; $i < $mvPageCount; $i++) {
                                     echo '
                                         <li>
-                                            <a href="' . $appRootURL . '/mv/list/' . $i . '"><i class="mdi mdi-numeric-' . $i % 10 . '-box"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
+                                            <a href="' . $appRootURL . '/mv/list/' . $i . '"><i class="mdi mdi-reproduction"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
                                         </li>
                                     ';
                                 }
