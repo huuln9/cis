@@ -36,6 +36,7 @@ $adv1s = json_decode($data['adv1s']);
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Tên</th>
                                         <th>Các tên khác</th>
                                         <th>Đặc điểm</th>
@@ -49,6 +50,7 @@ $adv1s = json_decode($data['adv1s']);
                                         $names = explode("|", $row->{'name'});
                                     ?>
                                     <tr>
+                                        <td><?php echo $row->{'id'} ?></td>
                                         <td>
                                             <a href="<?php echo $appRootURL ?>/mv/listbyactress/<?php echo $row->{'id'} ?>">
                                                 <span class='badge badge-info'><?php echo $names[0] ?></span>
