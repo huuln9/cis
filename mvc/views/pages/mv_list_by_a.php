@@ -28,9 +28,17 @@ $tags = json_decode($data['tags']);
                         <h4 class="card-title">
                             <?php
                             foreach ($actresse1s as $actress1) {
-                                echo $actress1->{"name"};
+                                $names = explode("|", $actress1->{"name"});
+                                echo $names[0];
                             }
                             ?>
+                            <p class="f-s-13">
+                                <?php
+                                if (isset($names[1])) {
+                                    echo $names[1];
+                                }
+                                ?>
+                            </p>
                         </h4>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
@@ -70,7 +78,7 @@ $tags = json_decode($data['tags']);
                                                     if ($mvActress->{'mvId'} == $row->{'id'}) {
                                                         foreach ($actresses as $actress) {
                                                             if ($actress->{'id'} == $mvActress->{'actressId'}) {
-                                                                echo "<a href='" . $appRootURL . "/mv/listbyactress/" . $actress->{'id'} . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
+                                                                echo "<a href='" . $appRootURL . "/mv/listbyactress/" . $actress->{'id'} . "'><span class='badge badge-info'>" . explode("|", $actress->{'name'})[0] . "</span></a>". " ";
                                                             }
                                                         }
                                                     }

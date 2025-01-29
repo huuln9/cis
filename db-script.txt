@@ -16,7 +16,6 @@ CREATE TABLE mv(
 CREATE TABLE actress (
 	id bigint PRIMARY KEY AUTO_INCREMENT,
     name text,
-    otherNames text,
     avatar text
 );
 

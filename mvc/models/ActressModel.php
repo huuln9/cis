@@ -66,18 +66,18 @@ class ActressModel extends Database {
     //     return json_encode($arr);
     // }
 
-    public function Add($name, $otherNames, $avatar) {
-        $qr = "INSERT INTO `actress` VALUES (null, '$name', '$otherNames', '$avatar');";
+    public function Add($name, $avatar) {
+        $qr = "INSERT INTO `actress` VALUES (null, '$name', '$avatar');";
         $this->conn->query($qr);
     }
 
-    public function Edit($id, $name, $otherNames, $avatar) {
-        $qr = "UPDATE `actress` SET `name`='$name', `otherNames`='$otherNames', `avatar`='$avatar' WHERE `id`=$id;";
+    public function Edit($id, $name, $avatar) {
+        $qr = "UPDATE `actress` SET `name`='$name', `avatar`='$avatar' WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 
-    public function EditNotAvt($id, $name, $otherNames) {
-        $qr = "UPDATE `actress` SET `name`='$name', `otherNames`='$otherNames' WHERE `id`=$id;";
+    public function EditNotAvt($id, $name) {
+        $qr = "UPDATE `actress` SET `name`='$name' WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 

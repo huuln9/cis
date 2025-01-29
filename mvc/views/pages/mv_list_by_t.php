@@ -70,7 +70,7 @@ $tag1s = json_decode($data['tag1s']);
                                                 if ($mvActress->{'mvId'} == $row->{'id'}) {
                                                     foreach ($actresses as $actress) {
                                                         if ($actress->{'id'} == $mvActress->{'actressId'}) {
-                                                            echo "<a href='" . $appRootURL . "/mv/listbyactress/" . $actress->{'id'} . "'><span class='badge badge-info'>" . $actress->{'name'} . "</span></a>". " ";
+                                                            echo "<a href='" . $appRootURL . "/mv/listbyactress/" . $actress->{'id'} . "'><span class='badge badge-info'>" . explode("|", $actress->{'name'})[0] . "</span></a>". " ";
                                                         }
                                                     }
                                                 }
