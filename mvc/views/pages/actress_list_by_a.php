@@ -44,14 +44,23 @@ $adv1s = json_decode($data['adv1s']);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($actresses as $row) { ?>
+                                    <?php
+                                    foreach ($actresses as $row) { 
+                                        $names = explode("|", $row->{'name'});
+                                    ?>
                                     <tr>
                                         <td>
                                             <a href="<?php echo $appRootURL ?>/mv/listbyactress/<?php echo $row->{'id'} ?>">
-                                                <span class='badge badge-info'><?php echo $row->{'name'} ?></span>
+                                                <span class='badge badge-info'><?php echo $names[0] ?></span>
                                             </a>
                                         </td>
-                                        <td><?php echo $row->{'otherNames'} ?></td>
+                                        <td>
+                                            <?php
+                                            if (isset($names[1])) {
+                                                echo $names[1];
+                                            }
+                                            ?>
+                                        </td>
                                         <td>
                                             <?php
                                                 foreach ($actressAdvs as $actressAdv) {
