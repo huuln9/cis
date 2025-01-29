@@ -61,7 +61,7 @@
                                 for ($i = 0; $i < $actressPageCount; $i++) {
                                     echo '
                                         <li>
-                                            <a href="' . $appRootURL . '/actress/list/' . $i . '"><i class="mdi mdi-numeric-' . $i . '-box"></i> Danh sách</a>
+                                            <a href="' . $appRootURL . '/actress/list/' . $i . '"><i class="mdi mdi-numeric-' . $i % 10 . '-box"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
                                         </li>
                                     ';
                                 }
@@ -78,7 +78,7 @@
                                 for ($i = 0; $i < $mvPageCount; $i++) {
                                     echo '
                                         <li>
-                                            <a href="' . $appRootURL . '/mv/list/' . $i . '"><i class="mdi mdi-numeric-' . $i % 10 . '-box"></i> Danh sách ' . $i . '</a>
+                                            <a href="' . $appRootURL . '/mv/list/' . $i . '"><i class="mdi mdi-numeric-' . $i % 10 . '-box"></i> DS (' . $i * 100 .'-'. ($i + 1) * 100 . ')</a>
                                         </li>
                                     ';
                                 }
