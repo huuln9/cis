@@ -48,6 +48,7 @@ $advs = json_decode($data['advs']);
                                         <td>
                                             <a href="<?php echo $appRootURL ?>/mv/listbyactress/<?php echo $row->{'id'} ?>">
                                                 <span class='badge badge-info'><?php echo $names[0] ?></span>
+                                                <!-- <i class="mdi mdi-heart" style="color:red"></i> -->
                                             </a>
                                         </td>
                                         <td>
